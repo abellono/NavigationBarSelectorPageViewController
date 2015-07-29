@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'NJHNavigationBarSelectorPageViewController_Example', :exclusive => true do
+  pod "NJHNavigationBarSelectorPageViewController", :path => "../"
+end
+
+target 'NJHNavigationBarSelectorPageViewController_Tests', :exclusive => true do
+  pod "NJHNavigationBarSelectorPageViewController", :path => "../"
+
+  pod 'Kiwi'
+end
