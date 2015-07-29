@@ -11,25 +11,27 @@
 
 @implementation NJHNavigationBarSelectorPageViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
+    if (self = [super initWithRootViewController:rootViewController]) {
+        self.X_BUFFER = 0.0; //%%% the number of pixels on either side of the segment
+        self.Y_BUFFER = 14.0; //%%% number of pixels on top of the segment
+        self.HEIGHT = 30.0; //%%% height of the segment
+        
+        //%%% customizeable selector bar attributes (the black bar under the buttons)
+        self.BOUNCE_BUFFER = 10.0; //%%% adds bounce to the selection bar when you scroll
+        self.ANIMATION_SPEED = 0.2; //%%% the number of seconds it takes to complete the animation
+        self.SELECTOR_Y_BUFFER = 40.0; //%%% the y-value of the bar that shows what page you are on (0 is the top)
+        self.SELECTOR_HEIGHT = 4.0; //%%% thickness of the selector bar
+        
+        self.navigationBar.barTintColor = [UIColor colorWithRed:0.01 green:0.05 blue:0.06 alpha:1]; //%%% bartint
+        self.navigationBar.translucent = NO;
+        self.viewControllerArray = [[NSMutableArray alloc]init];
+        self.currentPageIndex = 0;
+        self.isPageScrollingFlag = NO;
+        self.hasAppearedFlag = NO;
+    }
     
-    self.navigationBar.barTintColor = [UIColor colorWithRed:0.01 green:0.05 blue:0.06 alpha:1]; //%%% bartint
-    self.navigationBar.translucent = NO;
-    self.viewControllerArray = [[NSMutableArray alloc]init];
-    self.currentPageIndex = 0;
-    self.isPageScrollingFlag = NO;
-    self.hasAppearedFlag = NO;
-    
-    self.X_BUFFER = 0.0; //%%% the number of pixels on either side of the segment
-    self.Y_BUFFER = 14.0; //%%% number of pixels on top of the segment
-    self.HEIGHT = 30.0; //%%% height of the segment
-    
-    //%%% customizeable selector bar attributes (the black bar under the buttons)
-    self.BOUNCE_BUFFER = 10.0; //%%% adds bounce to the selection bar when you scroll
-    self.ANIMATION_SPEED = 0.2; //%%% the number of seconds it takes to complete the animation
-    self.SELECTOR_Y_BUFFER = 40.0; //%%% the y-value of the bar that shows what page you are on (0 is the top)
-    self.SELECTOR_HEIGHT = 4.0; //%%% thickness of the selector bar
+    return self;
 }
 
 #pragma mark Customizables
