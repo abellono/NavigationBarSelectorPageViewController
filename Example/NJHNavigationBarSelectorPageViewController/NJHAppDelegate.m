@@ -17,18 +17,18 @@
     
     UIPageViewController *pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
-    UIViewController *demo = [[UIViewController alloc] init];
-    UIViewController *demo2 = [[UIViewController alloc] init];
-    UIViewController *demo3 = [[UIViewController alloc] init];
+    UIViewController *one = [[UIViewController alloc] init];
+    UIViewController *two = [[UIViewController alloc] init];
+    UIViewController *three = [[UIViewController alloc] init];
     
-    demo.view.backgroundColor = [UIColor redColor];
-    demo.title = @"1";
-    demo2.view.backgroundColor = [UIColor whiteColor];
-    demo2.title = @"2";
-    demo3.view.backgroundColor = [UIColor greenColor];
-    demo3.title = @"3";
+    one.view.backgroundColor = [UIColor redColor];
+    one.title = @"1";
+    two.view.backgroundColor = [UIColor whiteColor];
+    two.title = @"2";
+    three.view.backgroundColor = [UIColor greenColor];
+    three.title = @"3";
     
-    NJHNavigationBarSelectorPageViewController *navigationController = [[NJHNavigationBarSelectorPageViewController alloc] initWithRootViewController:pageController pageViewControllers:@[demo, demo2, demo3]];
+    NJHNavigationBarSelectorPageViewController *navigationController = [[NJHNavigationBarSelectorPageViewController alloc] initWithRootViewController:pageController pageViewControllers:@[one, two, three]];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
