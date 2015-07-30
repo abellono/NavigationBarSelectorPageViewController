@@ -8,8 +8,6 @@
 #import "NJHNavigationBarSelectorPageViewController.h"
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
-
-
 @implementation NJHNavigationBarSelectorPageViewController
 
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController pageViewControllers:(NSArray *)pageViewControllers {
@@ -24,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationBar.frame) * 0.75, CGRectGetHeight(self.navigationBar.frame) * 0.7);
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationBar.frame) * 0.65, CGRectGetHeight(self.navigationBar.frame) * 0.7);
     self.navigationView.center = CGPointMake(CGRectGetWidth(self.navigationBar.frame) / 2, CGRectGetHeight(self.navigationBar.frame) / 2);
     [self.navigationBar addSubview:self.navigationView];
 }
@@ -32,7 +30,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationBar.frame) * 0.75, CGRectGetHeight(self.navigationBar.frame) * 0.7);
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationBar.frame) * 0.65, CGRectGetHeight(self.navigationBar.frame) * 0.7);
     self.navigationView.center = CGPointMake(CGRectGetWidth(self.navigationBar.frame) / 2, CGRectGetHeight(self.navigationBar.frame) / 2);
 }
 
@@ -59,44 +57,44 @@
     }
 }
 
--(void)updateCurrentPageIndex:(int)newIndex {
-    self.currentPageIndex = newIndex;
-}
-
-#pragma mark - Page View Controller Data Source
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    NSInteger index = [self.viewControllerArray indexOfObject:viewController];
+- (void)userDidTapBackgroundSelectionViewAtLocation:(CGPoint)point {
+    NSInteger section = point.x / CGRectGetWidth(self.navigationView.selectionView.frame);
+    NSLog(@"%ld", (long) section);
     
-    if ((index == NSNotFound) || (index == 0)) {
-        return nil;
+    if (!self.pageScrolling) {
+        
+        NSInteger tempIndex = self.currentPageIndex;
+        
+        __weak typeof(self) weakSelf = self;
+        
+        //%%% check to see if you're going left -> right or right -> left
+        if (section > tempIndex) {
+            
+            //%%% scroll through all the objects between the two points
+            for (int i = (int)tempIndex+1; i<= section; i++) {
+                [self.pageController setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete){
+                    
+                    //%%% if the action finishes scrolling (i.e. the user doesn't stop it in the middle),
+                    //then it updates the page that it's currently on
+                    if (complete) {
+                        weakSelf.currentPageIndex = i;
+                    }
+                }];
+            }
+        }
+        
+        //%%% this is the same thing but for going right -> left
+        else if (section < tempIndex) {
+            for (int i = (int)tempIndex-1; i >= section; i--) {
+                [self.pageController setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete){
+                    if (complete) {
+                        weakSelf.currentPageIndex = i;
+                    }
+                }];
+            }
+        }
     }
-    
-    index--;
-    return [self.viewControllerArray objectAtIndex:index];
 }
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    NSInteger index = [self.viewControllerArray indexOfObject:viewController];
-    
-    if (index == NSNotFound) {
-        return nil;
-    }
-    index++;
-    
-    if (index == [self.viewControllerArray count]) {
-        return nil;
-    }
-    return [self.viewControllerArray objectAtIndex:index];
-}
-
--(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
-    if (completed) {
-        self.currentPageIndex = [self.viewControllerArray indexOfObject:[pageViewController.viewControllers lastObject]];
-    }
-}
-
-#pragma mark - Scroll View Delegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.pageScrolling = YES;
@@ -106,7 +104,7 @@
     self.pageScrolling = NO;
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     CGFloat xFromCenter = self.view.frame.size.width - scrollView.contentOffset.x;
     
@@ -134,6 +132,46 @@
     [self.navigationView setOffsetForSelectionView:NewValue / [self.viewControllerArray count]];
 }
 
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSInteger index = [self.viewControllerArray indexOfObject:viewController];
+    
+    if ((index == NSNotFound) || (index == 0)) {
+        return nil;
+    }
+    
+    index--;
+    return [self.viewControllerArray objectAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSInteger index = [self.viewControllerArray indexOfObject:viewController];
+    
+    if (index == NSNotFound) {
+        return nil;
+    }
+    index++;
+    
+    if (index == [self.viewControllerArray count]) {
+        return nil;
+    }
+    return [self.viewControllerArray objectAtIndex:index];
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
+    if (completed) {
+        self.currentPageIndex = [self.viewControllerArray indexOfObject:[pageViewController.viewControllers lastObject]];
+    }
+}
+
+- (NJHNavigationBarBackgroundSelectionView *)navigationView {
+    if (!_navigationView) {
+        _navigationView = [[NJHNavigationBarBackgroundSelectionView alloc] initWithNumberOfSections:self.viewControllerArray.count namesForSections:[self generateButtonNamesFromViewControllers]];
+        _navigationView.delegate = self;
+    }
+    
+    return _navigationView;
+}
+
 - (NSArray *)generateButtonNamesFromViewControllers {
     NSMutableArray *viewControllerTitles = [NSMutableArray new];
     
@@ -142,14 +180,6 @@
     }
     
     return viewControllerTitles;
-}
-
-- (NJHNavigationBarBackgroundSelectionView *)navigationView {
-    if (!_navigationView) {
-        _navigationView = [[NJHNavigationBarBackgroundSelectionView alloc] initWithNumberOfSections:self.viewControllerArray.count namesForSections:[self generateButtonNamesFromViewControllers]];
-    }
-    
-    return _navigationView;
 }
 
 - (NSMutableArray *)viewControllerArray {

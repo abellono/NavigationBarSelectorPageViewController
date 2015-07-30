@@ -18,6 +18,8 @@
     if (self = [super init]) {
         self.sections = sections;
         [self createLabelViewsWithNames:names];
+        
+        [self addTarget:self action:@selector(viewTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return self;
@@ -32,6 +34,11 @@
         
         [self.labels addObject:label];
     }];
+}
+
+- (void)viewTapped:(NJHNavigationBarBackgroundSelectionView *)view event:(UIEvent *)event {
+    UITouch *touch = [[event touchesForView:view] anyObject];
+    [self.delegate userDidTapBackgroundSelectionViewAtLocation:[touch locationInView:view]];
 }
 
 - (void)didMoveToSuperview {
