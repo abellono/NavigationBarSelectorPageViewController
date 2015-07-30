@@ -8,11 +8,28 @@
 
 #import "NJHAppDelegate.h"
 
+@import NJHNavigationBarSelectorPageViewController;
+
 @implementation NJHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIPageViewController *pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    UIViewController *demo = [[UIViewController alloc] init];
+    UIViewController *demo2 = [[UIViewController alloc] init];
+    
+    demo.view.backgroundColor = [UIColor redColor];
+    demo.title = @"1";
+    demo2.view.backgroundColor = [UIColor whiteColor];
+    demo2.title = @"2";
+    
+    NJHNavigationBarSelectorPageViewController *navigationController = [[NJHNavigationBarSelectorPageViewController alloc] initWithRootViewController:pageController pageViewControllers:@[demo, demo2]];
+    
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
