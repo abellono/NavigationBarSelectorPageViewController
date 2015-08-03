@@ -18,6 +18,11 @@ static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBar
  */
 static int const kNJHSelectionViewSpacerSize = 1;
 
+/**
+ *  Default font size for labels
+ */
+static int const kNJHDefaultFontSize = 10;
+
 @interface NJHNavigationBarBackgroundSelectionView ()
 
 /**
@@ -153,13 +158,13 @@ static int const kNJHSelectionViewSpacerSize = 1;
     _fontForLabels = fontForLabels;
     
     for (UILabel *label in self.labels) {
-        label.font = fontForLabels  ;
+        label.font = fontForLabels;
     }
 }
 
 - (UIFont *)fontForLabels {
     if (!_fontForLabels) {
-        _fontForLabels = [UIFont systemFontOfSize:10];
+        _fontForLabels = [UIFont systemFontOfSize:kNJHDefaultFontSize];
     }
     
     return _fontForLabels;
