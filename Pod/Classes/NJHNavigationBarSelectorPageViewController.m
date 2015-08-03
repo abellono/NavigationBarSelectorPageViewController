@@ -22,7 +22,7 @@ static double const kNJHBackgroundSelectionViewHorizontalRatio = 0.65;
 @property (nonatomic) UINavigationItem *targetNavigationItem;
 @property (nonatomic) NSMutableArray *viewControllerArray;
 @property (nonatomic, getter=isPageScrolling) BOOL pageScrolling;
-@property (nonatomic, getter=hasInitialized) BOOL initialized;
+@property (nonatomic, getter=isInitialized) BOOL initialized;
 @property (nonatomic, readwrite) NSInteger currentPageIndex;
 @end
 
@@ -50,8 +50,6 @@ static double const kNJHBackgroundSelectionViewHorizontalRatio = 0.65;
     self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationController.navigationBar.frame) * kNJHBackgroundSelectionViewHorizontalRatio, CGRectGetHeight(self.navigationController.navigationBar.frame) * kNJHBackgroundSelectionViewVerticalRatio);
     self.navigationView.center = CGPointMake(CGRectGetWidth(self.navigationController.navigationBar.frame) / 2, CGRectGetHeight(self.navigationController.navigationBar.frame) / 2);
     
-    self.navigationView.labelTitles = [self generateButtonNamesFromViewControllers];
-    
     self.targetNavigationItem.titleView = self.navigationView;
 }
 
@@ -59,7 +57,7 @@ static double const kNJHBackgroundSelectionViewHorizontalRatio = 0.65;
     [super viewWillAppear:animated];
     
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
-    if (!self.hasInitialized) {
+    if (!self.isInitialized) {
         
         [self setViewControllers:@[[self.viewControllerArray objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         
@@ -200,7 +198,7 @@ static double const kNJHBackgroundSelectionViewHorizontalRatio = 0.65;
 
 - (NJHNavigationBarBackgroundSelectionView *)navigationView {
     if (!_navigationView) {
-        _navigationView = [NJHNavigationBarBackgroundSelectionView instance];
+        _navigationView = [NJHNavigationBarBackgroundSelectionView instanceWithViewControllerTitles:[self generateButtonNamesFromViewControllers]];
         _navigationView.delegate = self;
     }
     

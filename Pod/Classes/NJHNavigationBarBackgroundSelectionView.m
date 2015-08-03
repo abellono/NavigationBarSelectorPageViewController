@@ -37,31 +37,58 @@ static int const kNJHDefaultFontSize = 10;
 @property (nonatomic) NSUInteger sections;
 
 /**
- *  One for each section on the
+ *  One for each section we are displaying
  */
 @property (nonatomic) NSMutableArray *labels;
+
+/**
+ *  The titles for the labels on the navigation bar
+ */
+@property (nonatomic) NSArray *labelTitles;
 @end
 
 @implementation NJHNavigationBarBackgroundSelectionView
 
 /**
- *  Since we are overriding both the setter and the getter for the following properties, we must synthesize them
+ *  Since we are overriding both the setter and the getter for the following properties, we must synthesize these properties
  */
-@synthesize fontForLabels = _fontForLabels;
-@synthesize colorForLabels = _colorForLabels;
+@synthesize labelFont = _labelFont;
+@synthesize labelTextColor = _labelTextColor;
 
-+ (instancetype)instance {
++ (instancetype)instanceWithViewControllerTitles:(NSArray *)titles {
     NSBundle *resourceBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle].bundlePath stringByAppendingString:kNJHFrameworkBundleName]];
     UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:resourceBundle];
-    return [[nib instantiateWithOwner:nil options:nil] firstObject];
+    NJHNavigationBarBackgroundSelectionView *view = [[nib instantiateWithOwner:nil options:nil] firstObject];
+    [view setLabelTitles:titles];
+    return view;
+}
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.sections = [self.labelTitles count];
+    [self createLabelViews];
+    
+    [self addTarget:self action:@selector(viewTapped:event:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)createLabelViews {
+    [self.labelTitles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UILabel *label = [[UILabel alloc] init];
+        label.text = (NSString *)obj;
+        label.font = self.labelFont;
+        [label sizeToFit];
+        
+        [self.labels addObject:label];
+        [self addSubview:label];
+    }];
 }
 
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     
-    self.sections = [self.labelTitles count];
-    
     // The constraint that determines the width of the selector view that floats on top of the background view to signify the current selection
+    // We must set this every time we are moved to a new superview because this constraint is deleted if we are removed from the view heirarchy
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.selectorView
                                                                   attribute:NSLayoutAttributeWidth
                                                                   relatedBy:NSLayoutRelationEqual
@@ -70,27 +97,12 @@ static int const kNJHDefaultFontSize = 10;
                                                                  multiplier:1.f / (CGFloat)self.sections
                                                                    constant:0];
     
-    constraint.priority = 999; // Let the system break this constraint when we are compressed against the sides of the background view
+    // Let the system break this constraint when we are compressed against the sides of the background view
+    constraint.priority = UILayoutPriorityRequired - 1;
     [self addConstraint:constraint];
-    
-    [self createLabelViews];
-    
-    [self addTarget:self action:@selector(viewTapped:event:) forControlEvents:UIControlEventTouchUpInside];
     
     self.layer.cornerRadius = CGRectGetHeight(self.frame) / 2;
     self.selectorView.layer.cornerRadius = CGRectGetHeight(self.selectorView.frame) / 2;
-}
-
-- (void)createLabelViews {
-    [self.labelTitles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UILabel *label = [[UILabel alloc] init];
-        label.text = (NSString *)obj;
-        label.font = self.fontForLabels;
-        [label sizeToFit];
-        
-        [self.labels addObject:label];
-        [self addSubview:label];
-    }];
 }
 
 - (void)viewTapped:(NJHNavigationBarBackgroundSelectionView *)view event:(UIEvent *)event {
@@ -130,6 +142,12 @@ static int const kNJHDefaultFontSize = 10;
     return CGRectGetWidth(self.frame) / (CGFloat)self.sections + 2 * kNJHSelectionViewSpacerSize; // 2x because there is space on the right and left sides
 }
 
+#pragma mark - Setters and Getters
+
+- (void)setLabelTitles:(NSArray *)titles {
+    self.labelTitles = titles;
+}
+
 - (NSMutableArray *)labels {
     if (!_labels) {
         _labels = [NSMutableArray new];
@@ -138,36 +156,36 @@ static int const kNJHDefaultFontSize = 10;
     return _labels;
 }
 
-- (void)setColorForLabels:(UIColor *)colorForLabels {
-    _colorForLabels = colorForLabels;
+- (void)setLabelTextColor:(UIColor *)colorForLabels {
+    _labelTextColor = colorForLabels;
     
     for (UILabel *label in self.labels) {
         label.textColor = colorForLabels;
     }
 }
 
-- (UIColor *)colorForLabels {
-    if (!_colorForLabels) {
-        _colorForLabels = [UIColor blackColor];
+- (UIColor *)labelTextColor {
+    if (!_labelTextColor) {
+        _labelTextColor = [UIColor blackColor];
     }
     
-    return _colorForLabels;
+    return _labelTextColor;
 }
 
-- (void)setFontForLabels:(UIFont *)fontForLabels {
-    _fontForLabels = fontForLabels;
+- (void)setLabelFont:(UIFont *)fontForLabels {
+    _labelFont = fontForLabels;
     
     for (UILabel *label in self.labels) {
         label.font = fontForLabels;
     }
 }
 
-- (UIFont *)fontForLabels {
-    if (!_fontForLabels) {
-        _fontForLabels = [UIFont systemFontOfSize:kNJHDefaultFontSize];
+- (UIFont *)labelFont {
+    if (!_labelFont) {
+        _labelFont = [UIFont systemFontOfSize:kNJHDefaultFontSize];
     }
     
-    return _fontForLabels;
+    return _labelFont;
 }
 
 @end

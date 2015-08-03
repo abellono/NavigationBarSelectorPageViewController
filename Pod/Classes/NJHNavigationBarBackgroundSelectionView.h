@@ -28,7 +28,7 @@
  *
  *  @return An instance of this view with its views loaded from the appropriate nib
  */
-+ (instancetype)instance;
++ (instancetype)instanceWithViewControllerTitles:(NSArray *)titles;
 
 /**
  *  The delegate of this view that is notified if the user taps the navigation bar at a certain position, usually
@@ -42,20 +42,14 @@
 @property (weak, nonatomic) IBOutlet UIView *selectorView;
 
 /**
- *  The titles for the labels displayed under the selection view, normally the titles of the view controllers
- *  that can be selected
- */
-@property (nonatomic) NSArray *labelTitles;
-
-/**
  *  The font for the title labels. Default font is system font of size 10
  */
-@property (nonatomic) UIFont *fontForLabels;
+@property (nonatomic) UIFont *labelFont;
 
 /**
  *  The color to use as the text color on the title labels. Default color is black
  */
-@property (nonatomic) UIColor *colorForLabels;
+@property (nonatomic) UIColor *labelTextColor;
 
 /**
  *  The method that controls the offset of the selection view, usually hooked up to a scroll view delegate
@@ -63,5 +57,10 @@
  *  @param offset The distance to offset the selection view on the x axis
  */
 - (void)setOffsetForSelectionView:(CGFloat)offset;
+
+/**
+ *  Sets the label titles that are displayed on the background to indicate what the sections are called
+ */
+- (void)setLabelTitles:(NSArray *)titles;
 
 @end
