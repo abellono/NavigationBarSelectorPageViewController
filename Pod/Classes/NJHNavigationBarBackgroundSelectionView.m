@@ -65,14 +65,17 @@ static int const kNJHDefaultFontSize = 10;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    self.sections = [self.labelTitles count];
-    [self createLabelViews];
-    
+
     [self addTarget:self action:@selector(viewTapped:event:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)createLabelViews {
+    for (UILabel *label in self.labels) {
+        [label removeFromSuperview];
+    }
+    
+    [self.labels removeAllObjects];
+    
     [self.labelTitles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UILabel *label = [[UILabel alloc] init];
         label.text = (NSString *)obj;
@@ -145,7 +148,10 @@ static int const kNJHDefaultFontSize = 10;
 #pragma mark - Setters and Getters
 
 - (void)setLabelTitles:(NSArray *)titles {
-    self.labelTitles = titles;
+    _labelTitles = titles;
+    
+    self.sections = [self.labelTitles count];
+    [self createLabelViews];
 }
 
 - (NSMutableArray *)labels {
