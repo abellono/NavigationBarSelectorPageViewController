@@ -15,8 +15,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
-    UIPageViewController *pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    
     UIViewController *one = [[UIViewController alloc] init];
     UIViewController *two = [[UIViewController alloc] init];
     UIViewController *three = [[UIViewController alloc] init];
@@ -28,7 +26,9 @@
     three.view.backgroundColor = [UIColor greenColor];
     three.title = @"3";
     
-    NJHNavigationBarSelectorPageViewController *navigationController = [[NJHNavigationBarSelectorPageViewController alloc] initWithRootViewController:pageController pageViewControllers:@[one, two, three]];
+    NJHNavigationBarSelectorPageViewController *pageController = [[NJHNavigationBarSelectorPageViewController alloc] initWithPageViewControllers:@[one, two, three] navigationItem:nil];
+
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pageController];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];

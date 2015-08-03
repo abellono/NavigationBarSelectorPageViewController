@@ -12,20 +12,31 @@
 
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
-@interface NJHNavigationBarSelectorPageViewController : UINavigationController <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate, NJHNavigationBarBackgroundSelectionViewDelegate>
+@interface NJHNavigationBarSelectorPageViewController : UIPageViewController <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate, NJHNavigationBarBackgroundSelectionViewDelegate>
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController pageViewControllers:(NSArray *)pageViewControllers;
+/**
+ *  Initialize a NJHNavigationBarSelectorPageViewController with the requried information
+ *
+ *  @param pageViewControllers The page view controllers to display on in the UIPageViewController
+ *  @param navigationItem      The navigation item that is currently sitting on top of the navigation item stack. If you are pushing this view controller onto the stack
+ *                             by itself, you may pass in nil to this argument and the view controller will simply use self.navigationItem. However, if you are embedding this
+ *                             view controller inside another view controller that is then pushed on a navigation controller, you must pass in the navigation item for the view
+ *                             controller who's navigationItem is being displayed in the navigation bar
+ */
+- (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem;
 
-@property (nonatomic) NSMutableArray *viewControllerArray;
+/**
+ *  The view that sits in the navigation bar and indicates what view controller is selected
+ */
 @property (nonatomic) NJHNavigationBarBackgroundSelectionView *navigationView;
 
-
-@property (nonatomic) UIPageViewController *pageController;
-
+/**
+ *  The scroll view handled by the UIPageViewController, used to send delegate messages to the selection view in the navigation bar
+ */
 @property (nonatomic) UIScrollView *pageScrollView;
-@property (nonatomic) NSInteger currentPageIndex;
 
-@property (nonatomic, getter=isPageScrolling) BOOL pageScrolling;
-@property (nonatomic, getter=hasInitialized) BOOL initialized;
-
+/**
+ *  The index of the current view controller we are displaying
+ */
+@property (nonatomic, readonly) NSInteger currentPageIndex;
 @end

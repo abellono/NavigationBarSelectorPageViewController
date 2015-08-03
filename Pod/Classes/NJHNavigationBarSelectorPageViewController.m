@@ -8,13 +8,38 @@
 #import "NJHNavigationBarSelectorPageViewController.h"
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
+/**
+ *  The ratio of the background selection view's height to its super view height
+ */
+static double const kNJHBackgroundSelectionViewVerticalRatio = 0.7;
+
+/**
+ *  The ratio of the background selection view's width to its super view width
+ */
+static double const kNJHBackgroundSelectionViewHorizontalRatio = 0.65;
+
+@interface NJHNavigationBarSelectorPageViewController ()
+@property (nonatomic) UINavigationItem *targetNavigationItem;
+@property (nonatomic) NSMutableArray *viewControllerArray;
+@property (nonatomic, getter=isPageScrolling) BOOL pageScrolling;
+@property (nonatomic, getter=hasInitialized) BOOL initialized;
+@property (nonatomic, readwrite) NSInteger currentPageIndex;
+@end
+
 @implementation NJHNavigationBarSelectorPageViewController
 
-- (instancetype)initWithRootViewController:(UIViewController *)rootViewController pageViewControllers:(NSArray *)pageViewControllers {
-    // Calling initWithRootViewController triggers viewDidLoad, so we have to set this variable before init because we need it in viewDidLoad
-    [self.viewControllerArray addObjectsFromArray:pageViewControllers];
-    
-    self = [super initWithRootViewController:rootViewController];
+- (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem {
+    if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
+        if (!navigationItem) {
+            self.targetNavigationItem = self.navigationItem;
+        } else {
+            self.targetNavigationItem = navigationItem;
+        }
+        
+        [self.viewControllerArray addObjectsFromArray:pageViewControllers];
+        self.delegate = self;
+        self.dataSource = self;
+    }
     
     return self;
 }
@@ -22,16 +47,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationBar.frame) * 0.65, CGRectGetHeight(self.navigationBar.frame) * 0.7);
-    self.navigationView.center = CGPointMake(CGRectGetWidth(self.navigationBar.frame) / 2, CGRectGetHeight(self.navigationBar.frame) / 2);
-    [self.navigationBar addSubview:self.navigationView];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationController.navigationBar.frame) * kNJHBackgroundSelectionViewHorizontalRatio, CGRectGetHeight(self.navigationController.navigationBar.frame) * kNJHBackgroundSelectionViewVerticalRatio);
+    self.navigationView.center = CGPointMake(CGRectGetWidth(self.navigationController.navigationBar.frame) / 2, CGRectGetHeight(self.navigationController.navigationBar.frame) / 2);
     
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationBar.frame) * 0.65, CGRectGetHeight(self.navigationBar.frame) * 0.7);
-    self.navigationView.center = CGPointMake(CGRectGetWidth(self.navigationBar.frame) / 2, CGRectGetHeight(self.navigationBar.frame) / 2);
+    self.navigationView.labelTitles = [self generateButtonNamesFromViewControllers];
+    
+    self.targetNavigationItem.titleView = self.navigationView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,14 +60,14 @@
     
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
     if (!self.hasInitialized) {
-        self.pageController = (UIPageViewController*)self.viewControllers.firstObject;
-        [self.pageController setViewControllers:@[[self.viewControllerArray objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+        
+        [self setViewControllers:@[[self.viewControllerArray objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         
         // http://stackoverflow.com/a/28242857/4080860
         // The UIPageViewController does not expose the UIScrollView it uses to scroll between the view controllers it handles
         // so we have to get it ourselves
         
-        for (UIScrollView *view in self.pageController.view.subviews) {
+        for (UIScrollView *view in self.view.subviews) {
             if ([view isKindOfClass:[UIScrollView class]]) {
                 self.pageScrollView = view;
                 self.pageScrollView.delegate = self;
@@ -58,8 +79,7 @@
 }
 
 - (void)userDidTapBackgroundSelectionViewAtLocation:(CGPoint)point {
-    NSInteger section = point.x / CGRectGetWidth(self.navigationView.selectionView.frame);
-    NSLog(@"%ld", (long) section);
+    NSInteger section = point.x / CGRectGetWidth(self.navigationView.selectorView.frame);
     
     if (!self.pageScrolling) {
         
@@ -67,28 +87,21 @@
         
         __weak typeof(self) weakSelf = self;
         
-        //%%% check to see if you're going left -> right or right -> left
         if (section > tempIndex) {
-            
-            //%%% scroll through all the objects between the two points
             for (int i = (int)tempIndex+1; i<= section; i++) {
-                [self.pageController setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete){
-                    
-                    //%%% if the action finishes scrolling (i.e. the user doesn't stop it in the middle),
-                    //then it updates the page that it's currently on
+                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete){
                     if (complete) {
-                        weakSelf.currentPageIndex = i;
+                        __strong typeof(weakSelf) strongSelf = weakSelf;
+                        strongSelf.currentPageIndex = i;
                     }
                 }];
             }
-        }
-        
-        //%%% this is the same thing but for going right -> left
-        else if (section < tempIndex) {
+        } else if (section < tempIndex) {
             for (int i = (int)tempIndex-1; i >= section; i--) {
-                [self.pageController setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete){
+                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete){
                     if (complete) {
-                        weakSelf.currentPageIndex = i;
+                        __strong typeof(weakSelf) strongSelf = weakSelf;
+                        strongSelf.currentPageIndex = i;
                     }
                 }];
             }
@@ -105,31 +118,53 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
-    CGFloat xFromCenter = self.view.frame.size.width - scrollView.contentOffset.x;
+    // The x content offset on a UIScrollView in a UIPageController behaves a tad wierdly.
     
-    NSLog(@"xFromCenter %f", xFromCenter);
-
-    NSInteger xCoor = CGRectGetWidth(self.navigationBar.frame) * self.currentPageIndex;
+    // When the scroll view is in a resting position displaying any of the view controllers in the page view controller (ie not being scrolled), its x content offset is equal to the
+    // width of the page being displayed. Then, as you scroll to the right by moving your finger left across the view, the content offset increases to double that of the the page width,
+    // and when you arrive at the next page, resets to the width of the page. When scrolling (moving finger right), the content offset decreases to 0 from the width of the page and when
+    // the you arrive at the previous page, resets to the width of the page.
     
-    NSLog(@"xCoor %ld", (long)xCoor);
-    NSLog(@" ");
+    // Because of the behavior explained above, here we subtract the width of the page view from the x content offset of the scroll view in order to obtain a number that describes the
+    // current offset from the page that is being displayed. As you swipe left to the next page, this number increases from 0 to the with of the page, and as you swipe right to the previous
+    // page, this number decreses from 0 to the negative width of the page
+    CGFloat adjustedContentOffset = scrollView.contentOffset.x - CGRectGetWidth(self.view.frame);
     
-    CGFloat offset = xCoor - xFromCenter;
-    NSLog(@"Offset %ld", (long) offset);
+    // This value represents the total x distance from the very left side of the first view controller being displayed by the page view controller to the left side of the view
+    // controller that is currently being displayed. This value stays constant as the user scrolls side to side and serves to differentiate (for example) between a left scroll
+    // from the first page to the second page and a left scroll from the second page to the third page, as in both of these cases, the adjustedContentOffset will go from 0 to the
+    // width of the page, making it impossible to tell them apart without some secondary number
+    NSInteger currentPageOffset = CGRectGetWidth(self.view.frame) * self.currentPageIndex;
     
-    CGFloat OldValue = offset;
+    // For example, if the user was on the very last page of the view controller array, and we imagine the scroll view is set up as below, and the user starts swiping to the right,
+    // the currentPageOffset is the distance from the left side (marked LEFT) and the left side of the last view controller (marked CRT OFFSET). As the user swipes right, the adjustedContentOffset
+    // decreases from 0 to the negative width of the page. The finalOffset value calculated below effectively tracks the left side of the user's iphone screen's distance to the location marked
+    // LEFT below, allowing us to calculate how much to offset the selection view in the navigation bar
+    //
+    //
+    //                        |-------|  <--- This is the value of the adjusted offset (in this case it is a negative number)
+    //
+    //                        /-IPHONE SCREEN-\
+    // /-------------\ /------|------\ /------|------\
+    // |             | |      F      |C|      |      |
+    // |             | |      I      |R|      |      |
+    // |L            | |      N      |T|      |      |
+    // |E            | |      |      | |  PAGE CURR  |
+    // |F            | |      O      |O|  DISPLAYED  |
+    // |T            | |      F      |F|      |      |
+    // |             | |      S      |S|      |      |
+    // |             | |      E      |E|      |      |
+    // |             | |      T      |T|      |      |
+    // \-------------/ \------|------/ \------|------/
+    //                        \---------------/
+    CGFloat finalOffset = currentPageOffset + adjustedContentOffset;
     
-    CGFloat OldMax = CGRectGetWidth(self.navigationBar.frame);
-    CGFloat OldMin = 0;
-    CGFloat NewMax = CGRectGetWidth(self.navigationView.frame);
-    CGFloat NewMin = 0;
+    // Since the final offset is the distance from the "left" most view in the diagram above to the left side of the screen, it can be converted into a fraction that
+    // describes how far the user has scrolled from side to side by dividing by the total length of the scroll view. Once we have this fraction, we multiply by the length
+    // of the bacground selection view to figure out how far we should offset the selection view to properly represent the scrolling that has happened on screen
+    CGFloat convertedValue = finalOffset / (CGRectGetWidth(self.navigationController.navigationBar.frame) * self.viewControllerArray.count) * CGRectGetWidth(self.navigationView.frame);
     
-    CGFloat OldRange = (OldMax - OldMin);
-    CGFloat NewRange = (NewMax - NewMin);
-    CGFloat NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
-    
-    [self.navigationView setOffsetForSelectionView:NewValue / [self.viewControllerArray count]];
+    [self.navigationView setOffsetForSelectionView:convertedValue];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
@@ -165,7 +200,7 @@
 
 - (NJHNavigationBarBackgroundSelectionView *)navigationView {
     if (!_navigationView) {
-        _navigationView = [[NJHNavigationBarBackgroundSelectionView alloc] initWithNumberOfSections:self.viewControllerArray.count namesForSections:[self generateButtonNamesFromViewControllers]];
+        _navigationView = [NJHNavigationBarBackgroundSelectionView instance];
         _navigationView.delegate = self;
     }
     
@@ -188,12 +223,6 @@
     }
     
     return _viewControllerArray;
-}
-
-- (void)setPageController:(UIPageViewController *)pageController {
-    _pageController = pageController;
-    _pageController.delegate = self;
-    _pageController.dataSource = self;
 }
 
 @end
