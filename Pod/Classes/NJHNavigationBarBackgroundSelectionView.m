@@ -13,6 +13,11 @@
  */
 static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBarSelectorPageViewController.framework/";
 
+/**
+ *  The space that is inserted between the selection view and the background view on all sides
+ */
+static int const kNJHSelectionViewSpacerSize = 1;
+
 @interface NJHNavigationBarBackgroundSelectionView ()
 
 /**
@@ -51,6 +56,7 @@ static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBar
     
     self.sections = [self.labelTitles count];
     
+    // The constraint that determines the width of the selector view that floats on top of the background view to signify the current selection
     NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.selectorView
                                                                   attribute:NSLayoutAttributeWidth
                                                                   relatedBy:NSLayoutRelationEqual
@@ -59,7 +65,7 @@ static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBar
                                                                  multiplier:1.f / (CGFloat)self.sections
                                                                    constant:0];
     
-    constraint.priority = 999;
+    constraint.priority = 999; // Let the system break this constraint when we are compressed against the sides of the background view
     [self addConstraint:constraint];
     
     [self createLabelViews];
@@ -116,7 +122,7 @@ static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBar
 }
 
 - (CGFloat)widthForSelectionView {
-    return CGRectGetWidth(self.frame) / (CGFloat)self.sections - 2.f;
+    return CGRectGetWidth(self.frame) / (CGFloat)self.sections + 2 * kNJHSelectionViewSpacerSize; // 2x because there is space on the right and left sides
 }
 
 - (NSMutableArray *)labels {
