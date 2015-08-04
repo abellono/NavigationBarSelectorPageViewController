@@ -82,10 +82,12 @@ static int const kNJHDefaultFontSize = 10;
         UILabel *label = [[UILabel alloc] init];
         label.text = (NSString *)obj;
         label.font = self.labelFont;
-        [label sizeToFit];
+        label.textColor = self.labelTextColor;
         
         [self.labels addObject:label];
         [self addSubview:label];
+        
+        [label sizeToFit];
     }];
 }
 
@@ -133,6 +135,7 @@ static int const kNJHDefaultFontSize = 10;
     [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UILabel *label = (UILabel *)obj;
         label.center = CGPointMake(idx * sectionWidth + sectionWidth / 2, CGRectGetHeight(self.frame) / 2);
+        [label sizeToFit];
     }];
     
     self.layer.cornerRadius = CGRectGetHeight(self.frame) / 2;
