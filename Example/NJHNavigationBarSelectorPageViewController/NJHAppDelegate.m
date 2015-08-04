@@ -7,6 +7,7 @@
 //
 
 #import "NJHAppDelegate.h"
+#import "NJHViewController.h"
 
 @import NJHNavigationBarSelectorPageViewController;
 
@@ -15,20 +16,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
-    UIViewController *one = [[UIViewController alloc] init];
-    UIViewController *two = [[UIViewController alloc] init];
-    UIViewController *three = [[UIViewController alloc] init];
-    
-    one.view.backgroundColor = [UIColor redColor];
-    one.title = @"1";
-    two.view.backgroundColor = [UIColor whiteColor];
-    two.title = @"2";
-    three.view.backgroundColor = [UIColor greenColor];
-    three.title = @"3";
-    
-    NJHNavigationBarSelectorPageViewController *pageController = [[NJHNavigationBarSelectorPageViewController alloc] initWithPageViewControllers:@[one, two, three] navigationItem:nil];
-
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:pageController];
+    NJHViewController *viewController = [NJHViewController new];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
     
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
