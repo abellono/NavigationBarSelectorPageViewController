@@ -65,6 +65,8 @@ static int const kNJHDefaultFontSize = 10;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.selectorView.translatesAutoresizingMaskIntoConstraints = NO;
 
     [self addTarget:self action:@selector(viewTapped:event:) forControlEvents:UIControlEventTouchUpInside];
 }

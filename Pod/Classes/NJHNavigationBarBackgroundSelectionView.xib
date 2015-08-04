@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NJHNavigationBarBackgroundSelectionView">
-            <rect key="frame" x="0.0" y="-1" width="589" height="54"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QFd-7m-Ydm">
-                    <rect key="frame" x="111" y="1" width="178" height="52"/>
+                    <rect key="frame" x="111" y="1" width="178" height="28"/>
                     <color key="backgroundColor" red="0.8862745098" green="0.37647058820000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>

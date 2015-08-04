@@ -6,13 +6,38 @@
 //  Copyright (c) 2015 Hakon Hanesand. All rights reserved.
 //
 
+@import NJHNavigationBarSelectorPageViewController;
+
 #import "NJHViewController.h"
 
 @interface NJHViewController ()
-
+@property (nonatomic) NJHNavigationBarSelectorPageViewController *swipeController;
 @end
 
 @implementation NJHViewController
+
+- (instancetype)init {
+    if (self = [super init]) {
+        UIViewController *one = [[UIViewController alloc] init];
+        UIViewController *two = [[UIViewController alloc] init];
+        UIViewController *three = [[UIViewController alloc] init];
+        
+        one.view.backgroundColor = [UIColor redColor];
+        one.title = @"111111111";
+        two.view.backgroundColor = [UIColor whiteColor];
+        two.title = @"222222222";
+        three.view.backgroundColor = [UIColor greenColor];
+        three.title = @"33333333";
+        
+        self.swipeController = [[NJHNavigationBarSelectorPageViewController alloc] initWithPageViewControllers:@[one, two, three] navigationItem:self.navigationItem];
+        
+        [self addChildViewController:self.swipeController];
+        [self.view addSubview:self.swipeController.view];
+        [self.swipeController didMoveToParentViewController:self];
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad
 {

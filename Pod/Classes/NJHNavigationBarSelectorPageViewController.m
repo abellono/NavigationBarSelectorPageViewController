@@ -8,16 +8,6 @@
 #import "NJHNavigationBarSelectorPageViewController.h"
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
-/**
- *  The ratio of the background selection view's height to its super view height
- */
-static double const kNJHBackgroundSelectionViewVerticalRatio = 0.7;
-
-/**
- *  The ratio of the background selection view's width to its super view width
- */
-static double const kNJHBackgroundSelectionViewHorizontalRatio = 0.65;
-
 @interface NJHNavigationBarSelectorPageViewController ()
 @property (nonatomic) UINavigationItem *targetNavigationItem;
 @property (nonatomic) NSMutableArray *viewControllerArray;
@@ -47,10 +37,10 @@ static double const kNJHBackgroundSelectionViewHorizontalRatio = 0.65;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationController.navigationBar.frame) * kNJHBackgroundSelectionViewHorizontalRatio, CGRectGetHeight(self.navigationController.navigationBar.frame) * kNJHBackgroundSelectionViewVerticalRatio);
-    self.navigationView.center = CGPointMake(CGRectGetWidth(self.navigationController.navigationBar.frame) / 2, CGRectGetHeight(self.navigationController.navigationBar.frame) / 2);
-    
     self.targetNavigationItem.titleView = self.navigationView;
+    
+    // The selection view might be coming from the nib in a wierd position, so make sure we set its offset to be 0 here
+    [self.navigationView setOffsetForSelectionView:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
