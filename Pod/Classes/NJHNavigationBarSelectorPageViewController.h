@@ -12,6 +12,9 @@
 
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
+/**
+ *  A subclass of UIPageController that controlls a page view and syncs it with a view in the navigation bar that shows what page you are located on
+ */
 @interface NJHNavigationBarSelectorPageViewController : UIPageViewController <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate, NJHNavigationBarBackgroundSelectionViewDelegate>
 
 /**

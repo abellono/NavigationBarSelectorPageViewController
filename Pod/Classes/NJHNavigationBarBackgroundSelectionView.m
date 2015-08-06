@@ -103,6 +103,8 @@ static int const kNJHDefaultFontSize = 10;
     }
     
     [self.labels removeAllObjects];
+    
+    [self.selectorView removeFromSuperview];
 }
 
 - (void)createLabelViews {
