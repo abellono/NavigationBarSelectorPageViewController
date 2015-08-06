@@ -40,7 +40,7 @@
     self.targetNavigationItem.titleView = self.navigationView;
     
     // The selection view might be coming from the nib in a wierd position, so make sure we set its offset to be 0 here
-    [self.navigationView setOffsetForSelectionView:0];
+    [self.navigationView setDragCompletionRatio:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -148,11 +148,10 @@
     CGFloat finalOffset = currentPageOffset + adjustedContentOffset;
     
     // Since the final offset is the distance from the "left" most view in the diagram above to the left side of the screen, it can be converted into a fraction that
-    // describes how far the user has scrolled from side to side by dividing by the total length of the scroll view. Once we have this fraction, we multiply by the length
-    // of the bacground selection view to figure out how far we should offset the selection view to properly represent the scrolling that has happened on screen
-    CGFloat convertedValue = finalOffset / (CGRectGetWidth(self.navigationController.navigationBar.frame) * self.viewControllerArray.count) * CGRectGetWidth(self.navigationView.frame);
+    // describes how far the user has scrolled from side to side by dividing by the total length of the scroll view. We pass this decimal (range [0, # of vc - 1 / # of vc]) to the view
+    CGFloat completionRatio = finalOffset / (CGRectGetWidth(self.navigationController.navigationBar.frame) * self.viewControllerArray.count);
     
-    [self.navigationView setOffsetForSelectionView:convertedValue];
+    [self.navigationView setDragCompletionRatio:completionRatio];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {

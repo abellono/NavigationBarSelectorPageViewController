@@ -52,11 +52,11 @@
 @property (nonatomic) UIColor *labelTextColor;
 
 /**
- *  The method that controls the offset of the selection view, usually hooked up to a scroll view delegate
+ *  Use this method to inform the view of how far along the scrol view is in its scrolling progress
  *
- *  @param offset The distance to offset the selection view on the x axis
+ *  @param offset A decimal in the range of [0, 1] that describes how much the user has scrolled in the scroll view
  */
-- (void)setOffsetForSelectionView:(CGFloat)offset;
+- (void)setDragCompletionRatio:(CGFloat)ratio;
 
 /**
  *  Sets the label titles that are displayed on the background to indicate what the sections are called
