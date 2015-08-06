@@ -30,7 +30,7 @@
         three.view.backgroundColor = [UIColor greenColor];
         three.title = @"3";
         four.view.backgroundColor = [UIColor blueColor];
-        four.title = @"3";
+        four.title = @"4";
         
         self.swipeController = [[NJHNavigationBarSelectorPageViewController alloc] initWithPageViewControllers:@[one, two, three, four] navigationItem:self.navigationItem];
         
