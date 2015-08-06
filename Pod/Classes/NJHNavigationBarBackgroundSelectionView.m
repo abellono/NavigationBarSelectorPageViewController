@@ -16,7 +16,7 @@ static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBar
 /**
  *  The space that is inserted between the selection view and the background view on all sides
  */
-static int const kNJHSelectionViewSpacerSize = 1;
+static CGFloat const kNJHSelectionViewSpacerSize = 1.f;
 
 /**
  *  Default font size for labels
@@ -45,6 +45,18 @@ static int const kNJHDefaultFontSize = 10;
  *  The titles for the labels on the navigation bar
  */
 @property (nonatomic) NSArray *labelTitles;
+
+@end
+
+/**
+ *  Methods that deal with constraints
+ */
+@interface NJHNavigationBarBackgroundSelectionView (Constraints)
+
+- (void)setupWidthConstraint;
+
+- (void)setupLabelConstraints;
+
 @end
 
 @implementation NJHNavigationBarBackgroundSelectionView
@@ -67,96 +79,113 @@ static int const kNJHDefaultFontSize = 10;
     [super awakeFromNib];
     
     self.selectorView.translatesAutoresizingMaskIntoConstraints = NO;
-
     [self addTarget:self action:@selector(viewTapped:event:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)createLabelViews {
+- (void)didMoveToSuperview {
+    [super didMoveToSuperview];
+    
+    self.layer.cornerRadius = CGRectGetHeight(self.frame) / 2;
+    self.selectorView.layer.cornerRadius = CGRectGetHeight(self.selectorView.frame) / 2;
+}
+
+- (void)configureView {
+    self.sections = [self.labelTitles count];
+    [self createLabelViews];
+    
+    [self setupWidthConstraint];
+    [self setupLabelConstraints];
+}
+
+- (void)resetView {
     for (UILabel *label in self.labels) {
         [label removeFromSuperview];
     }
     
     [self.labels removeAllObjects];
     
+    [self.selectorView removeFromSuperview];
+}
+
+- (void)createLabelViews {
     [self.labelTitles enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UILabel *label = [[UILabel alloc] init];
         label.text = (NSString *)obj;
         label.font = self.labelFont;
         label.textColor = self.labelTextColor;
+        label.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self.labels addObject:label];
         [self addSubview:label];
-        
-        [label sizeToFit];
     }];
-}
-
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-    
-    // The constraint that determines the width of the selector view that floats on top of the background view to signify the current selection
-    // We must set this every time we are moved to a new superview because this constraint is deleted if we are removed from the view heirarchy
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.selectorView
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.f / (CGFloat)self.sections
-                                                                   constant:0];
-    
-    // Let the system break this constraint when we are compressed against the sides of the background view
-    constraint.priority = UILayoutPriorityRequired - 1;
-    [self addConstraint:constraint];
-    
-    self.layer.cornerRadius = CGRectGetHeight(self.frame) / 2;
-    self.selectorView.layer.cornerRadius = CGRectGetHeight(self.selectorView.frame) / 2;
 }
 
 - (void)viewTapped:(NJHNavigationBarBackgroundSelectionView *)view event:(UIEvent *)event {
     UITouch *touch = [[event touchesForView:view] anyObject];
     [self.delegate userDidTapBackgroundSelectionViewAtLocation:[touch locationInView:view]];
 }
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-    const CGFloat sectionWidth = CGRectGetWidth(self.frame) / self.labels.count;
-    
-    // Position as many labels as we need on this navigation background view
-    //
-    // Assuming names.count is 2, then sw represents the sectionWidth, and we have to calculate the
-    // frames for the two labels
-    //
-    // /--------------------------------------------\
-    // |                    |                       |
-    // |     Label Here     sw      Label Here      |
-    // |                    |                       |
-    // \--------------------------------------------/
-    [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        UILabel *label = (UILabel *)obj;
-        label.center = CGPointMake(idx * sectionWidth + sectionWidth / 2, CGRectGetHeight(self.frame) / 2);
-        [label sizeToFit];
-    }];
-    
-    self.layer.cornerRadius = CGRectGetHeight(self.frame) / 2;
-    self.selectorView.layer.cornerRadius = CGRectGetHeight(self.selectorView.frame) / 2;
+- (void)setDragCompletionRatio:(CGFloat)ratio {
+    self.animateableConstraint.constant = [self widthForSelectionView] / 2.f + [self calculateOffsetWithCompletionRatio:ratio];
 }
 
-- (void)setOffsetForSelectionView:(CGFloat)offset {
-    self.animateableConstraint.constant = [self widthForSelectionView] / 2 + offset;
+- (CGFloat)calculateOffsetWithCompletionRatio:(CGFloat)ratio {
+    // If the ratio is 0, we want our output to be 1, which is why we add the spacer size at the very end
+    return ratio * CGRectGetWidth(self.frame) + kNJHSelectionViewSpacerSize;
 }
 
 - (CGFloat)widthForSelectionView {
-    return CGRectGetWidth(self.frame) / (CGFloat)self.sections + 2 * kNJHSelectionViewSpacerSize; // 2x because there is space on the right and left sides
+    return CGRectGetWidth(self.frame) / (CGFloat)self.sections - 2.f * kNJHSelectionViewSpacerSize; // 2x because there is space on the right and left sides
 }
 
-#pragma mark - Setters and Getters
+@end
+
+@implementation NJHNavigationBarBackgroundSelectionView (Constraints)
+
+/**
+ *  Set the selection view's width to be the width of this view times the inverse of the
+ *  number of sections, minus 2 pixels total for space on left and right sides
+ */
+- (void)setupWidthConstraint {
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.selectorView attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.f / (CGFloat)self.sections
+                                                                   constant:-2 * kNJHSelectionViewSpacerSize];
+    
+    // Let the system break this constraint when we are compressed against the sides of the background view
+    constraint.priority = UILayoutPriorityRequired - 1;
+    [self addConstraint:constraint];
+}
+
+/**
+ *  Align the labels evenly along the center y axis of their superview (this class) with equal spacing between them
+ */
+- (void)setupLabelConstraints {
+    CGFloat min = 1.f / self.labels.count;
+    CGFloat max = 2.f - min;
+    CGFloat delta = (max - min) / (self.labels.count - 1);
+    
+    [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterX
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeCenterX
+                                                        multiplier:(CGFloat)idx * delta + min constant:0]];
+        
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1 constant:0]];
+    }];
+}
+
+@end
+
+@implementation NJHNavigationBarBackgroundSelectionView (Accessors)
 
 - (void)setLabelTitles:(NSArray *)titles {
     _labelTitles = titles;
-    
-    self.sections = [self.labelTitles count];
-    [self createLabelViews];
+    [self resetView];
+    [self configureView];
 }
 
 - (NSMutableArray *)labels {

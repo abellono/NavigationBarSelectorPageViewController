@@ -30,7 +30,7 @@
                 <outlet property="animateableConstraint" destination="yUk-iU-AUO" id="vPN-xH-Crp"/>
                 <outlet property="selectorView" destination="QFd-7m-Ydm" id="ZmR-0U-7fN"/>
             </connections>
-            <point key="canvasLocation" x="301.5" y="500"/>
+            <point key="canvasLocation" x="82" y="552"/>
         </view>
     </objects>
 </document>

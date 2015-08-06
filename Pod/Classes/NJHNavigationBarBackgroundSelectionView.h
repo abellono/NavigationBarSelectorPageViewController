@@ -10,6 +10,10 @@
 
 @import UIKit;
 
+/**
+ *  A protocol that defines a method for touch recognizing on the background selection view in order allow the user to
+ *  tap a section and subsequently scroll there
+ */
 @protocol NJHNavigationBarBackgroundSelectionViewDelegate <NSObject>
 
 /**
@@ -21,10 +25,15 @@
 
 @end
 
+/**
+ *  The view that sits on the navigation bar containing the section labels and the section selection view
+ */
 @interface NJHNavigationBarBackgroundSelectionView : UIControl
 
 /**
  *  Encapsulates the process of instantiating this view from it nib
+ *
+ *  @param titles The titles of the sections to display on the navigation bar (the length of this array determines the number of sections shown)
  *
  *  @return An instance of this view with its views loaded from the appropriate nib
  */
@@ -42,24 +51,24 @@
 @property (weak, nonatomic) IBOutlet UIView *selectorView;
 
 /**
- *  The font for the title labels. Default font is system font of size 10
+ *  The font for the title labels. Default font is system font of size 10. Can be changed at any time
  */
 @property (nonatomic) UIFont *labelFont;
 
 /**
- *  The color to use as the text color on the title labels. Default color is black
+ *  The color to use as the text color on the title labels. Default color is black. Can be changed at any time
  */
 @property (nonatomic) UIColor *labelTextColor;
 
 /**
- *  The method that controls the offset of the selection view, usually hooked up to a scroll view delegate
+ *  Use this method to inform the view of how far along the scrol view is in its scrolling progress
  *
- *  @param offset The distance to offset the selection view on the x axis
+ *  @param offset A decimal in the range of [0, # of sections - 1 / # of sections] that describes how much the user has scrolled in the scroll view
  */
-- (void)setOffsetForSelectionView:(CGFloat)offset;
+- (void)setDragCompletionRatio:(CGFloat)ratio;
 
 /**
- *  Sets the label titles that are displayed on the background to indicate what the sections are called
+ *  Sets the label titles that are displayed on the background to indicate what the sections are called. Can be called dynamically to adjust the sections displayed
  */
 - (void)setLabelTitles:(NSArray *)titles;
 
