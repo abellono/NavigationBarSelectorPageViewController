@@ -68,27 +68,45 @@
     }
 }
 
+- (void)transitionToNextViewController {
+    if (self.currentPageIndex == self.viewControllerArray.count - 1) {
+        NSLog(@"Attempted to transition to a the next view controller, but there are not any more view controllers");
+    }
+    
+    [self transitionToViewControllerAtIndex:self.currentPageIndex + 1];
+}
+
+- (void)transitionToPreviousViewController {
+    if (self.currentPageIndex == 0) {
+        NSLog(@"Attempted to transition to the previous view controller, but there is not a previous view controller");
+    }
+    
+    [self transitionToViewControllerAtIndex:self.currentPageIndex - 1];
+}
+
 - (void)userDidTapBackgroundSelectionViewAtLocation:(CGPoint)point {
     NSInteger section = point.x / CGRectGetWidth(self.navigationView.selectorView.frame);
-    
+    [self transitionToViewControllerAtIndex:section];
+}
+
+- (void)transitionToViewControllerAtIndex:(NSInteger)index {
     if (!self.pageScrolling) {
-        
         NSInteger tempIndex = self.currentPageIndex;
         
         __weak typeof(self) weakSelf = self;
         
-        if (section > tempIndex) {
-            for (int i = (int)tempIndex+1; i<= section; i++) {
-                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete){
+        if (index > tempIndex) {
+            for (int i = (int)tempIndex+1; i<= index; i++) {
+                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete) {
                     if (complete) {
                         __strong typeof(weakSelf) strongSelf = weakSelf;
                         strongSelf.currentPageIndex = i;
                     }
                 }];
             }
-        } else if (section < tempIndex) {
-            for (int i = (int)tempIndex-1; i >= section; i--) {
-                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete){
+        } else if (index < tempIndex) {
+            for (int i = (int)tempIndex-1; i >= index; i--) {
+                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete) {
                     if (complete) {
                         __strong typeof(weakSelf) strongSelf = weakSelf;
                         strongSelf.currentPageIndex = i;

@@ -39,6 +39,8 @@
     [self addChildViewController:self.swipeController];
     [self.view addSubview:self.swipeController.view];
     [self.swipeController didMoveToParentViewController:self];
+    
+    [self.swipeController performSelector:@selector(transitionToNextViewController) withObject:nil afterDelay:4];
 }
 
 - (void)didReceiveMemoryWarning
