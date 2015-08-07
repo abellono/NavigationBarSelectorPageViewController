@@ -78,6 +78,8 @@ static int const kNJHDefaultFontSize = 10;
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    [self addSubview:self.selectorView];
+    
     self.selectorView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addTarget:self action:@selector(viewTapped:event:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -103,8 +105,6 @@ static int const kNJHDefaultFontSize = 10;
     }
     
     [self.labels removeAllObjects];
-    
-    [self.selectorView removeFromSuperview];
 }
 
 - (void)createLabelViews {
