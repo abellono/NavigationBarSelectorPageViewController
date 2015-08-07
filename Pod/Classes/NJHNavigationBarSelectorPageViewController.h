@@ -34,12 +34,12 @@
 @property (nonatomic) NJHNavigationBarBackgroundSelectionView *navigationView;
 
 /**
- *  The scroll view handled by the UIPageViewController, used to send delegate messages to the selection view in the navigation bar
- */
-@property (nonatomic) UIScrollView *pageScrollView;
-
-/**
  *  The index of the current view controller we are displaying
  */
 @property (nonatomic, readonly) NSInteger currentPageIndex;
+
+/**
+ *  The color that is set to the scroll view's background color
+ */
+@property (nonatomic) UIColor *scrollViewBackgroundColor;
 @end
