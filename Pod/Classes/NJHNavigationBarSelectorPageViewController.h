@@ -52,4 +52,12 @@
  *  Animates to the previous view controller, if there is one
  */
 - (void)transitionToPreviousViewController;
+
+/**
+ *  Transition to the view controller at index
+ *
+ *  @param index The index to transition to, if a view controller exists there
+ */
+- (void)transitionToViewControllerAtIndex:(NSInteger)index;
+
 @end
