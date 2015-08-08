@@ -59,7 +59,6 @@
         for (UIScrollView *view in self.view.subviews) {
             if ([view isKindOfClass:[UIScrollView class]]) {
                 self.pageScrollView = view;
-                self.pageScrollView.backgroundColor = self.scrollViewBackgroundColor;
                 self.pageScrollView.delegate = self;
             }
         }
@@ -227,11 +226,6 @@
     }
     
     return _viewControllerArray;
-}
-
-- (void)setScrollViewBackgroundColor:(UIColor *)scrollViewBackgroundColor {
-    _scrollViewBackgroundColor = scrollViewBackgroundColor;
-    self.pageScrollView.backgroundColor = _scrollViewBackgroundColor;
 }
 
 @end

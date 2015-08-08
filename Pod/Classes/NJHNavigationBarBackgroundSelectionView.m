@@ -23,6 +23,17 @@ static CGFloat const kNJHSelectionViewSpacerSize = 1.f;
  */
 static int const kNJHDefaultFontSize = 10;
 
+/**
+ *  Methods that deal with constraints
+ */
+@interface NJHNavigationBarBackgroundSelectionView (Constraints)
+
+- (void)setupWidthConstraint;
+
+- (void)setupLabelConstraints;
+
+@end
+
 @interface NJHNavigationBarBackgroundSelectionView ()
 
 /**
@@ -48,17 +59,6 @@ static int const kNJHDefaultFontSize = 10;
 
 @end
 
-/**
- *  Methods that deal with constraints
- */
-@interface NJHNavigationBarBackgroundSelectionView (Constraints)
-
-- (void)setupWidthConstraint;
-
-- (void)setupLabelConstraints;
-
-@end
-
 @implementation NJHNavigationBarBackgroundSelectionView
 
 /**
@@ -73,6 +73,43 @@ static int const kNJHDefaultFontSize = 10;
     NJHNavigationBarBackgroundSelectionView *view = [[nib instantiateWithOwner:nil options:nil] firstObject];
     [view setLabelTitles:titles];
     return view;
+}
+
+/**
+ *  Set the selection view's width to be the width of this view times the inverse of the
+ *  number of sections, minus 2 pixels total for space on left and right sides
+ */
+- (void)setupWidthConstraint {
+    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.selectorView attribute:NSLayoutAttributeWidth
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self attribute:NSLayoutAttributeWidth
+                                                                 multiplier:1.f / (CGFloat)self.sections
+                                                                   constant:-2 * kNJHSelectionViewSpacerSize];
+    
+    // Let the system break this constraint when we are compressed against the sides of the background view
+    constraint.priority = UILayoutPriorityRequired - 1;
+    [self addConstraint:constraint];
+}
+
+/**
+ *  Align the labels evenly along the center y axis of their superview (this class) with equal spacing between them
+ */
+- (void)setupLabelConstraints {
+    CGFloat min = 1.f / self.labels.count;
+    CGFloat max = 2.f - min;
+    CGFloat delta = (max - min) / (self.labels.count - 1);
+    
+    [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterX
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeCenterX
+                                                        multiplier:(CGFloat)idx * delta + min constant:0]];
+        
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY
+                                                         relatedBy:NSLayoutRelationEqual
+                                                            toItem:self attribute:NSLayoutAttributeCenterY
+                                                        multiplier:1 constant:0]];
+    }];
 }
 
 - (void)awakeFromNib {
@@ -136,51 +173,6 @@ static int const kNJHDefaultFontSize = 10;
 - (CGFloat)widthForSelectionView {
     return CGRectGetWidth(self.frame) / (CGFloat)self.sections - 2.f * kNJHSelectionViewSpacerSize; // 2x because there is space on the right and left sides
 }
-
-@end
-
-@implementation NJHNavigationBarBackgroundSelectionView (Constraints)
-
-/**
- *  Set the selection view's width to be the width of this view times the inverse of the
- *  number of sections, minus 2 pixels total for space on left and right sides
- */
-- (void)setupWidthConstraint {
-    NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.selectorView attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:self attribute:NSLayoutAttributeWidth
-                                                                 multiplier:1.f / (CGFloat)self.sections
-                                                                   constant:-2 * kNJHSelectionViewSpacerSize];
-    
-    // Let the system break this constraint when we are compressed against the sides of the background view
-    constraint.priority = UILayoutPriorityRequired - 1;
-    [self addConstraint:constraint];
-}
-
-/**
- *  Align the labels evenly along the center y axis of their superview (this class) with equal spacing between them
- */
-- (void)setupLabelConstraints {
-    CGFloat min = 1.f / self.labels.count;
-    CGFloat max = 2.f - min;
-    CGFloat delta = (max - min) / (self.labels.count - 1);
-    
-    [self.labels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterX
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self attribute:NSLayoutAttributeCenterX
-                                                        multiplier:(CGFloat)idx * delta + min constant:0]];
-        
-        [self addConstraint:[NSLayoutConstraint constraintWithItem:obj attribute:NSLayoutAttributeCenterY
-                                                         relatedBy:NSLayoutRelationEqual
-                                                            toItem:self attribute:NSLayoutAttributeCenterY
-                                                        multiplier:1 constant:0]];
-    }];
-}
-
-@end
-
-@implementation NJHNavigationBarBackgroundSelectionView (Accessors)
 
 - (void)setLabelTitles:(NSArray *)titles {
     _labelTitles = titles;

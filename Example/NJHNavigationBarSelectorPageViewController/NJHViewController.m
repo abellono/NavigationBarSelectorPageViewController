@@ -36,6 +36,8 @@
     
     self.swipeController = [[NJHNavigationBarSelectorPageViewController alloc] initWithPageViewControllers:@[one, two, three, four] navigationItem:self.navigationItem];
     
+    self.swipeController.view.backgroundColor = [UIColor blackColor];
+    
     [self addChildViewController:self.swipeController];
     [self.view addSubview:self.swipeController.view];
     [self.swipeController didMoveToParentViewController:self];
