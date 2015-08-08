@@ -69,20 +69,10 @@
 }
 
 - (void)transitionToNextViewController {
-    if (self.currentPageIndex == self.viewControllerArray.count - 1) {
-        NSLog(@"Attempted to transition to a the next view controller, but there are not any more view controllers");
-        return;
-    }
-    
     [self transitionToViewControllerAtIndex:self.currentPageIndex + 1];
 }
 
 - (void)transitionToPreviousViewController {
-    if (self.currentPageIndex == 0) {
-        NSLog(@"Attempted to transition to the previous view controller, but there is not a previous view controller");
-        return;
-    }
-    
     [self transitionToViewControllerAtIndex:self.currentPageIndex - 1];
 }
 
