@@ -14,6 +14,7 @@
 @property (nonatomic, getter=isPageScrolling) BOOL pageScrolling;
 @property (nonatomic, getter=isInitialized) BOOL initialized;
 @property (nonatomic, readwrite) NSInteger currentPageIndex;
+@property (nonatomic, weak) UIScrollView *pageScrollView;
 @end
 
 @implementation NJHNavigationBarSelectorPageViewController
@@ -58,6 +59,7 @@
         for (UIScrollView *view in self.view.subviews) {
             if ([view isKindOfClass:[UIScrollView class]]) {
                 self.pageScrollView = view;
+                self.pageScrollView.backgroundColor = self.scrollViewBackgroundColor;
                 self.pageScrollView.delegate = self;
             }
         }
@@ -66,27 +68,42 @@
     }
 }
 
+- (void)transitionToNextViewController {
+    [self transitionToViewControllerAtIndex:self.currentPageIndex + 1];
+}
+
+- (void)transitionToPreviousViewController {
+    [self transitionToViewControllerAtIndex:self.currentPageIndex - 1];
+}
+
 - (void)userDidTapBackgroundSelectionViewAtLocation:(CGPoint)point {
     NSInteger section = point.x / CGRectGetWidth(self.navigationView.selectorView.frame);
+    [self transitionToViewControllerAtIndex:section];
+}
+
+- (void)transitionToViewControllerAtIndex:(NSInteger)index {
+    if (index >= self.viewControllerArray.count || index < 0) {
+        NSLog(@"Can not tranisition to view controller at index %ld.", (long)index);
+        return;
+    }
     
     if (!self.pageScrolling) {
-        
         NSInteger tempIndex = self.currentPageIndex;
         
         __weak typeof(self) weakSelf = self;
         
-        if (section > tempIndex) {
-            for (int i = (int)tempIndex+1; i<= section; i++) {
-                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete){
+        if (index > tempIndex) {
+            for (int i = (int)tempIndex+1; i<= index; i++) {
+                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete) {
                     if (complete) {
                         __strong typeof(weakSelf) strongSelf = weakSelf;
                         strongSelf.currentPageIndex = i;
                     }
                 }];
             }
-        } else if (section < tempIndex) {
-            for (int i = (int)tempIndex-1; i >= section; i--) {
-                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete){
+        } else if (index < tempIndex) {
+            for (int i = (int)tempIndex-1; i >= index; i--) {
+                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete) {
                     if (complete) {
                         __strong typeof(weakSelf) strongSelf = weakSelf;
                         strongSelf.currentPageIndex = i;
@@ -110,8 +127,8 @@
     
     // When the scroll view is in a resting position displaying any of the view controllers in the page view controller (ie not being scrolled), its x content offset is equal to the
     // width of the page being displayed. Then, as you scroll to the right by moving your finger left across the view, the content offset increases to double that of the the page width,
-    // and when you arrive at the next page, resets to the width of the page. When scrolling (moving finger right), the content offset decreases to 0 from the width of the page and when
-    // the you arrive at the previous page, resets to the width of the page.
+    // and when you arrive at the next page, resets to the width of the page. When scrolling to the left (moving finger right), the content offset decreases to 0 from the width of the page
+    // and when the you arrive at the previous page, resets to the width of the page.
     
     // Because of the behavior explained above, here we subtract the width of the page view from the x content offset of the scroll view in order to obtain a number that describes the
     // current offset from the page that is being displayed. As you swipe left to the next page, this number increases from 0 to the with of the page, and as you swipe right to the previous
@@ -210,6 +227,11 @@
     }
     
     return _viewControllerArray;
+}
+
+- (void)setScrollViewBackgroundColor:(UIColor *)scrollViewBackgroundColor {
+    _scrollViewBackgroundColor = scrollViewBackgroundColor;
+    self.pageScrollView.backgroundColor = _scrollViewBackgroundColor;
 }
 
 @end
