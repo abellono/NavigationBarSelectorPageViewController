@@ -18,6 +18,8 @@ static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBar
  */
 static CGFloat const kNJHSelectionViewSpacerSize = 1.f;
 
+static CGFloat const kNJHLabelSpacingSize = 40.f;
+
 /**
  *  Default font size for labels
  */
@@ -112,6 +114,16 @@ static int const kNJHDefaultFontSize = 10;
     }];
 }
 
+- (CGSize)sizeThatFits:(CGSize)size {
+    CGFloat totalLabelWidth = 0.f;
+    
+    for (UILabel *label in self.labels) {
+        totalLabelWidth += CGRectGetWidth(label.frame);
+    }
+    
+    return CGSizeMake(totalLabelWidth + kNJHLabelSpacingSize * (self.labels.count + 1), size.height);
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -172,6 +184,17 @@ static int const kNJHDefaultFontSize = 10;
 
 - (CGFloat)widthForSelectionView {
     return CGRectGetWidth(self.frame) / (CGFloat)self.sections - 2.f * kNJHSelectionViewSpacerSize; // 2x because there is space on the right and left sides
+}
+
+- (void)setFrame:(CGRect)frame {
+    CGFloat oldWidth = CGRectGetWidth(self.frame);
+    
+    [super setFrame:frame];
+    
+    if (CGRectGetWidth(frame) != oldWidth) {
+        // If we have been set to a new width, make sure to allign the selector view correctly
+        [self setDragCompletionRatio:0];
+    }
 }
 
 - (void)setLabelTitles:(NSArray *)titles {

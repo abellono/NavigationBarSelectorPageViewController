@@ -38,15 +38,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.navigationView sizeToFit];
     self.targetNavigationItem.titleView = self.navigationView;
-    
-    // The selection view might be coming from the nib in a wierd position, so make sure we set its offset to be 0 here
-    [self.navigationView setDragCompletionRatio:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
     if (!self.isInitialized) {
         
