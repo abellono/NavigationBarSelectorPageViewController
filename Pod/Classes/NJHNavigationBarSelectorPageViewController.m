@@ -8,6 +8,8 @@
 #import "NJHNavigationBarSelectorPageViewController.h"
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
+static CGFloat const kNHTitleViewWidthPercentageOfNavigationBar = 0.6f;
+
 @interface NJHNavigationBarSelectorPageViewController ()
 @property (nonatomic) UINavigationItem *targetNavigationItem;
 @property (nonatomic) NSMutableArray *viewControllerArray;
@@ -35,18 +37,16 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationController.navigationBar.frame) * kNHTitleViewWidthPercentageOfNavigationBar, 30);
     self.targetNavigationItem.titleView = self.navigationView;
-    
-    // The selection view might be coming from the nib in a wierd position, so make sure we set its offset to be 0 here
-    [self.navigationView setDragCompletionRatio:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
     if (!self.isInitialized) {
         
@@ -59,7 +59,6 @@
         for (UIScrollView *view in self.view.subviews) {
             if ([view isKindOfClass:[UIScrollView class]]) {
                 self.pageScrollView = view;
-                self.pageScrollView.backgroundColor = self.scrollViewBackgroundColor;
                 self.pageScrollView.delegate = self;
             }
         }
@@ -227,11 +226,6 @@
     }
     
     return _viewControllerArray;
-}
-
-- (void)setScrollViewBackgroundColor:(UIColor *)scrollViewBackgroundColor {
-    _scrollViewBackgroundColor = scrollViewBackgroundColor;
-    self.pageScrollView.backgroundColor = _scrollViewBackgroundColor;
 }
 
 @end

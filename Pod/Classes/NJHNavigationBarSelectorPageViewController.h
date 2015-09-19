@@ -39,11 +39,6 @@
 @property (nonatomic, readonly) NSInteger currentPageIndex;
 
 /**
- *  The color that is set to the scroll view's background color
- */
-@property (nonatomic) UIColor *scrollViewBackgroundColor;
-
-/**
  *  Animates to the next view controller, if there is one
  */
 - (void)transitionToNextViewController;
