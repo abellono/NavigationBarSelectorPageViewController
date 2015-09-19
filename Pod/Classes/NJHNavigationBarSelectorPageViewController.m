@@ -37,10 +37,8 @@ static CGFloat const kNHTitleViewWidthPercentageOfNavigationBar = 0.6f;
     return self;
 }
 
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationController.navigationBar.frame) * kNHTitleViewWidthPercentageOfNavigationBar, 30);
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) * kNHTitleViewWidthPercentageOfNavigationBar, 30);
     self.targetNavigationItem.titleView = self.navigationView;
 }
 
