@@ -8,6 +8,8 @@
 #import "NJHNavigationBarSelectorPageViewController.h"
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
+static CGFloat const kNHTitleViewWidthPercentageOfNavigationBar = 0.6f;
+
 @interface NJHNavigationBarSelectorPageViewController ()
 @property (nonatomic) UINavigationItem *targetNavigationItem;
 @property (nonatomic) NSMutableArray *viewControllerArray;
@@ -35,10 +37,10 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     
-    [self.navigationView sizeToFit];
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth(self.navigationController.navigationBar.frame) * kNHTitleViewWidthPercentageOfNavigationBar, 30);
     self.targetNavigationItem.titleView = self.navigationView;
 }
 

@@ -114,16 +114,6 @@ static int const kNJHDefaultFontSize = 10;
     }];
 }
 
-- (CGSize)sizeThatFits:(CGSize)size {
-    CGFloat totalLabelWidth = 0.f;
-    
-    for (UILabel *label in self.labels) {
-        totalLabelWidth += CGRectGetWidth(label.frame);
-    }
-    
-    return CGSizeMake(totalLabelWidth + kNJHLabelSpacingSize * (self.labels.count + 1), size.height);
-}
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     
