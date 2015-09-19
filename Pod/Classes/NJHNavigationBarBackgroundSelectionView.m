@@ -18,8 +18,6 @@ static NSString * const kNJHFrameworkBundleName = @"/Frameworks/NJHNavigationBar
  */
 static CGFloat const kNJHSelectionViewSpacerSize = 1.f;
 
-static CGFloat const kNJHLabelSpacingSize = 40.f;
-
 /**
  *  Default font size for labels
  */
