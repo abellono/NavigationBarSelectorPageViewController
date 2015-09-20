@@ -42,6 +42,12 @@
     self.targetNavigationItem.titleView = self.navigationView;
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    [self.navigationView setDragCompletionRatio:0];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
@@ -51,9 +57,7 @@
         [self setViewControllers:@[[self.viewControllerArray objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         
         // http://stackoverflow.com/a/28242857/4080860
-        // The UIPageViewController does not expose the UIScrollView it uses to scroll between the view controllers it handles
-        // so we have to get it ourselves
-        
+        // The UIPageViewController does not expose the UIScrollView it uses to scroll between the view controllers it handles so we have to get it ourselves
         for (UIScrollView *view in self.view.subviews) {
             if ([view isKindOfClass:[UIScrollView class]]) {
                 self.pageScrollView = view;
@@ -78,35 +82,28 @@
     [self transitionToViewControllerAtIndex:section];
 }
 
-- (void)transitionToViewControllerAtIndex:(NSInteger)index {
-    if (index >= self.viewControllerArray.count || index < 0) {
-        NSLog(@"Can not tranisition to view controller at index %ld.", (long)index);
+- (void)transitionToViewControllerAtIndex:(NSInteger)destinationIndex {
+    if (destinationIndex >= self.viewControllerArray.count || destinationIndex < 0) {
+        NSLog(@"Can not tranisition to view controller at index %ld.", (long)destinationIndex);
         return;
     }
     
     if (!self.pageScrolling) {
-        NSInteger tempIndex = self.currentPageIndex;
+        int currentStartIndex = (int)self.currentPageIndex;
+        __weak typeof(self) __weak_self = self;
+
         
-        __weak typeof(self) weakSelf = self;
+        BOOL forwards = destinationIndex > currentStartIndex;
+        UIPageViewControllerNavigationDirection direction = forwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
         
-        if (index > tempIndex) {
-            for (int i = (int)tempIndex+1; i<= index; i++) {
-                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL complete) {
-                    if (complete) {
-                        __strong typeof(weakSelf) strongSelf = weakSelf;
-                        strongSelf.currentPageIndex = i;
-                    }
-                }];
-            }
-        } else if (index < tempIndex) {
-            for (int i = (int)tempIndex-1; i >= index; i--) {
-                [self setViewControllers:@[[self.viewControllerArray objectAtIndex:i]] direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:^(BOOL complete) {
-                    if (complete) {
-                        __strong typeof(weakSelf) strongSelf = weakSelf;
-                        strongSelf.currentPageIndex = i;
-                    }
-                }];
-            }
+        // Scrolls through the pages between currentPageIndex and destination to show the user where we are transitioning to
+        for (int i = forwards ? currentStartIndex + 1 : currentStartIndex - 1; forwards ? i <= destinationIndex : i >= destinationIndex; forwards ? i++ : i--) {
+            [self setViewControllers:@[self.viewControllerArray[i]] direction:direction animated:YES completion:^(BOOL finished) {
+                if (finished) {
+                    __strong typeof(__weak_self) __strong_self = __weak_self;
+                    __strong_self.currentPageIndex = i;
+                }
+            }];
         }
     }
 }

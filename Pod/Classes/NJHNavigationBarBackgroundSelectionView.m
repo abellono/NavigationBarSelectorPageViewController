@@ -161,6 +161,7 @@ static int const kNJHDefaultFontSize = 10;
     UITouch *touch = [[event touchesForView:view] anyObject];
     [self.delegate userDidTapBackgroundSelectionViewAtLocation:[touch locationInView:view]];
 }
+
 - (void)setDragCompletionRatio:(CGFloat)ratio {
     self.animateableConstraint.constant = [self widthForSelectionView] / 2.f + [self calculateOffsetWithCompletionRatio:ratio];
 }
