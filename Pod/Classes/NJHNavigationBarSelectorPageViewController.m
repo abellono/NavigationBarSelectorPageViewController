@@ -8,8 +8,6 @@
 #import "NJHNavigationBarSelectorPageViewController.h"
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
-static CGFloat const kNHTitleViewWidthPercentageOfNavigationBar = 0.6f;
-
 @interface NJHNavigationBarSelectorPageViewController ()
 @property (nonatomic) UINavigationItem *targetNavigationItem;
 @property (nonatomic) NSMutableArray *viewControllerArray;
@@ -23,6 +21,8 @@ static CGFloat const kNHTitleViewWidthPercentageOfNavigationBar = 0.6f;
 
 - (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
+        _navigationBarSelectionWithProportion = 0.6;
+        
         if (!navigationItem) {
             self.targetNavigationItem = self.navigationItem;
         } else {
@@ -38,7 +38,7 @@ static CGFloat const kNHTitleViewWidthPercentageOfNavigationBar = 0.6f;
 }
 
 - (void)viewDidLoad {
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) * kNHTitleViewWidthPercentageOfNavigationBar, 30);
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) * self.navigationBarSelectionWithProportion, 30);
     self.targetNavigationItem.titleView = self.navigationView;
 }
 
