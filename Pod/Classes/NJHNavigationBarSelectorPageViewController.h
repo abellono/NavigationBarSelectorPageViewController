@@ -39,6 +39,11 @@
 @property (nonatomic, readonly) NSInteger currentPageIndex;
 
 /**
+ *  Use this property to specify what percentage of the navigation bar's width the selection view should be. Default 0.6.
+ */
+@property (nonatomic) CGFloat navigationBarSelectionWithProportion;
+
+/**
  *  Animates to the next view controller, if there is one
  */
 - (void)transitionToNextViewController;
