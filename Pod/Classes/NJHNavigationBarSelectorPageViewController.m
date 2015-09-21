@@ -38,6 +38,8 @@
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    
     self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) * self.navigationBarSelectionWithProportion, 30);
     self.targetNavigationItem.titleView = self.navigationView;
 }
@@ -45,7 +47,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    [self.navigationView setDragCompletionRatio:0];
+    [self updateSelectorViewWithScrollView:self.pageScrollView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -117,6 +119,10 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self updateSelectorViewWithScrollView:scrollView];
+}
+
+- (void)updateSelectorViewWithScrollView:(UIScrollView *)scrollView {
     // The x content offset on a UIScrollView in a UIPageController behaves a tad wierdly.
     
     // When the scroll view is in a resting position displaying any of the view controllers in the page view controller (ie not being scrolled), its x content offset is equal to the
