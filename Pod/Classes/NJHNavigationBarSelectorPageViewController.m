@@ -21,7 +21,7 @@
 
 - (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem {
     if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
-        _navigationBarSelectionWithProportion = 0.6;
+        _navigationBarSelectionWidthProportion = 0.6;
         
         if (!navigationItem) {
             self.targetNavigationItem = self.navigationItem;
@@ -30,6 +30,7 @@
         }
         
         [self.viewControllerArray addObjectsFromArray:pageViewControllers];
+        
         self.delegate = self;
         self.dataSource = self;
     }
@@ -40,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) * self.navigationBarSelectionWithProportion, 30);
+    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) * self.navigationBarSelectionWidthProportion, 30);
     self.targetNavigationItem.titleView = self.navigationView;
 }
 
@@ -91,10 +92,10 @@
     }
     
     if (!self.pageScrolling) {
+        self.pageScrolling = YES;
         int currentStartIndex = (int)self.currentPageIndex;
         __weak typeof(self) __weak_self = self;
 
-        
         BOOL forwards = destinationIndex > currentStartIndex;
         UIPageViewControllerNavigationDirection direction = forwards ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse;
         
@@ -104,6 +105,7 @@
                 if (finished) {
                     __strong typeof(__weak_self) __strong_self = __weak_self;
                     __strong_self.currentPageIndex = i;
+                    __strong_self.pageScrolling = i != destinationIndex;
                 }
             }];
         }
@@ -123,6 +125,12 @@
 }
 
 - (void)updateSelectorViewWithScrollView:(UIScrollView *)scrollView {
+    if (CGRectGetWidth(self.navigationController.navigationBar.frame) < 0.00001) {
+        // This can happen if the user pops the view controller while the scroll view is moving
+        // Continuing would cause division by 0
+        return;
+    }
+    
     // The x content offset on a UIScrollView in a UIPageController behaves a tad wierdly.
     
     // When the scroll view is in a resting position displaying any of the view controllers in the page view controller (ie not being scrolled), its x content offset is equal to the
@@ -178,22 +186,17 @@
         return nil;
     }
     
-    index--;
-    return [self.viewControllerArray objectAtIndex:index];
+    return [self.viewControllerArray objectAtIndex:--index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     NSInteger index = [self.viewControllerArray indexOfObject:viewController];
     
-    if (index == NSNotFound) {
+    if (index == NSNotFound || index == [self.viewControllerArray count] - 1) {
         return nil;
     }
-    index++;
     
-    if (index == [self.viewControllerArray count]) {
-        return nil;
-    }
-    return [self.viewControllerArray objectAtIndex:index];
+    return [self.viewControllerArray objectAtIndex:++index];
 }
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
