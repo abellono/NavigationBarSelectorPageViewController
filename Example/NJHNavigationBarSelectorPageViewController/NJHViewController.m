@@ -36,7 +36,7 @@
     
     self.swipeController = [[NJHNavigationBarSelectorPageViewController alloc] initWithPageViewControllers:@[one, two, three, four] navigationItem:self.navigationItem];
     
-    self.swipeController.navigationBarSelectionWithProportion = 0.9;
+    self.swipeController.navigationBarSelectionWidthProportion = 0.9;
     
     self.swipeController.view.backgroundColor = [UIColor blackColor];
     

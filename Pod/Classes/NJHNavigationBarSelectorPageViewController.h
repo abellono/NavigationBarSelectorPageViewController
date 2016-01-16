@@ -41,7 +41,7 @@
 /**
  *  Use this property to specify what percentage of the navigation bar's width the selection view should be. Default 0.6.
  */
-@property (nonatomic) CGFloat navigationBarSelectionWithProportion;
+@property (nonatomic) CGFloat navigationBarSelectionWidthProportion;
 
 /**
  *  Animates to the next view controller, if there is one
