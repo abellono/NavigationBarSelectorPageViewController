@@ -21,8 +21,8 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		6EE887EC1B6A1EA7006DDB3B /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE887EB1B6A1EA7006DDB3B /* Launch Screen.xib */; };
-		C621FF9793C74522C340A492 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314F6EBD0F892782168D52A1 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		D702D7B3C2BAFAD8455F4602 /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D09A3C178CA55C915DD4E1 /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		AC9C10A63E9C8B2C5FBA559F /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9CCD23B2A8140721446991 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */; };
+		E7914AC2FF76E47379FC5AD2 /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4FE9838781881C0FD1102E /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A22703E31FF077900EC512A /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		0A605A4E56B69A6026757C85 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		30D09A3C178CA55C915DD4E1 /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJHNavigationBarSelectorPageViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		314F6EBD0F892782168D52A1 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJHNavigationBarSelectorPageViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C62B765C9FEEEED302DF863 /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		0F4FE9838781881C0FD1102E /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJHNavigationBarSelectorPageViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1205D53F7AD521301CCFA9E5 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Tests/Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		482809487BB40734ED292739 /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		5DB6399C14782D8B7B278EF1 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Tests/Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* NJHNavigationBarSelectorPageViewController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJHNavigationBarSelectorPageViewController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,10 +63,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		63524B585E3C71A01B29C9B5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6EE887EB1B6A1EA7006DDB3B /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
-		7C9F6578816BF7932BAD87BA /* Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Tests/Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		CBBD7749F5B34734E3465CCA /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7A9CCD23B2A8140721446991 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJHNavigationBarSelectorPageViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA03EEF4C6387431DA55717 /* NJHNavigationBarSelectorPageViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NJHNavigationBarSelectorPageViewController.podspec; path = ../NJHNavigationBarSelectorPageViewController.podspec; sourceTree = "<group>"; };
-		F2285B6964A0DA2F0C94EDE4 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Tests/Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				C621FF9793C74522C340A492 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework in Frameworks */,
+				AC9C10A63E9C8B2C5FBA559F /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,24 +86,13 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				D702D7B3C2BAFAD8455F4602 /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework in Frameworks */,
+				E7914AC2FF76E47379FC5AD2 /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4EEA90643892C1BB8ABBFE12 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4C62B765C9FEEEED302DF863 /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */,
-				CBBD7749F5B34734E3465CCA /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */,
-				7C9F6578816BF7932BAD87BA /* Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig */,
-				F2285B6964A0DA2F0C94EDE4 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +101,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				4EEA90643892C1BB8ABBFE12 /* Pods */,
+				B7758675D8209A3618D2D560 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,8 +121,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				314F6EBD0F892782168D52A1 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */,
-				30D09A3C178CA55C915DD4E1 /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework */,
+				7A9CCD23B2A8140721446991 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */,
+				0F4FE9838781881C0FD1102E /* Pods_NJHNavigationBarSelectorPageViewController_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,6 +182,17 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		B7758675D8209A3618D2D560 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0A22703E31FF077900EC512A /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */,
+				482809487BB40734ED292739 /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */,
+				1205D53F7AD521301CCFA9E5 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig */,
+				5DB6399C14782D8B7B278EF1 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,12 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController_Example" */;
 			buildPhases = (
-				EE69FDBB24AEABCC3B503B53 /* Check Pods Manifest.lock */,
+				187365C06F191DAD3AEFF1BF /* Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				B926E8100DFF6D225129F32D /* Embed Pods Frameworks */,
-				36B7EAC51A4715044913807A /* Copy Pods Resources */,
+				981DD92F58A688350085EAC1 /* Embed Pods Frameworks */,
+				74B79EF93A9B6F4D80797ED3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,12 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController_Tests" */;
 			buildPhases = (
-				9C80BFAEEC4A06AFCD7E5C6B /* Check Pods Manifest.lock */,
+				5D05278F560649D08D98236C /* Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				9764265ECA14E828500C4A98 /* Embed Pods Frameworks */,
-				F1B06F7F7A41503C0C89B4B1 /* Copy Pods Resources */,
+				299AEC87AB79DA40BCD08490 /* Embed Pods Frameworks */,
+				E43141EF58D742809BF0EB50 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -293,22 +293,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		36B7EAC51A4715044913807A /* Copy Pods Resources */ = {
+		187365C06F191DAD3AEFF1BF /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		9764265ECA14E828500C4A98 /* Embed Pods Frameworks */ = {
+		299AEC87AB79DA40BCD08490 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -323,7 +323,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Tests/Pods-NJHNavigationBarSelectorPageViewController_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9C80BFAEEC4A06AFCD7E5C6B /* Check Pods Manifest.lock */ = {
+		5D05278F560649D08D98236C /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -338,7 +338,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		B926E8100DFF6D225129F32D /* Embed Pods Frameworks */ = {
+		74B79EF93A9B6F4D80797ED3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		981DD92F58A688350085EAC1 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,22 +368,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE69FDBB24AEABCC3B503B53 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F1B06F7F7A41503C0C89B4B1 /* Copy Pods Resources */ = {
+		E43141EF58D742809BF0EB50 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -508,7 +508,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C62B765C9FEEEED302DF863 /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */;
+			baseConfigurationReference = 0A22703E31FF077900EC512A /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -523,7 +523,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBBD7749F5B34734E3465CCA /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */;
+			baseConfigurationReference = 482809487BB40734ED292739 /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -538,7 +538,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C9F6578816BF7932BAD87BA /* Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig */;
+			baseConfigurationReference = 1205D53F7AD521301CCFA9E5 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -561,7 +561,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2285B6964A0DA2F0C94EDE4 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig */;
+			baseConfigurationReference = 5DB6399C14782D8B7B278EF1 /* Pods-NJHNavigationBarSelectorPageViewController_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
