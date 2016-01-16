@@ -123,6 +123,12 @@
 }
 
 - (void)updateSelectorViewWithScrollView:(UIScrollView *)scrollView {
+    if (CGRectGetWidth(self.navigationController.navigationBar.frame) < 0.00001) {
+        // This can happen if the user pops the view controller while the scroll view is moving
+        // Continuing would cause division by 0
+        return;
+    }
+    
     // The x content offset on a UIScrollView in a UIPageController behaves a tad wierdly.
     
     // When the scroll view is in a resting position displaying any of the view controllers in the page view controller (ie not being scrolled), its x content offset is equal to the
