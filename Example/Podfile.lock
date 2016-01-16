@@ -1,6 +1,6 @@
 PODS:
   - Kiwi (2.3.1)
-  - NJHNavigationBarSelectorPageViewController (0.2.6)
+  - NJHNavigationBarSelectorPageViewController (0.2.7)
 
 DEPENDENCIES:
   - Kiwi
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
-  NJHNavigationBarSelectorPageViewController: dee6872710a410e8a69b33f90108b58f8474df0a
+  NJHNavigationBarSelectorPageViewController: 62f75f6eb6001ac48a558027fc7c923cd3d04d7f
 
 PODFILE CHECKSUM: 4229236e01814e65a329d00edfbc605c802a7614
 

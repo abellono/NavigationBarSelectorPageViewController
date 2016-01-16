@@ -9,7 +9,7 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+The example project illustrates how to set up the page view controller.
 
 ## Installation
 
@@ -22,7 +22,8 @@ pod "NJHNavigationBarSelectorPageViewController"
 
 ## Author
 
-Hakon Hanesand, hakon@hanesand.no
+Hakon Hanesand, hakon@abello.no
+Nikolai Heum, nikolai@abello.no
 
 ## License
 
