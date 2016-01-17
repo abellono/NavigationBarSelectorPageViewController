@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "NJHNavigationBarSelectorPageViewController"
   s.version          = "0.2.7"
-  s.summary          = "A subclass of UIPageViewController that shows an animated selection bar in the navigation bar that visualizes the swiping back and forth between pages."
+  s.summary          = "A view controller that shows synchronizes a selection bar with swipes in a page controller."
   s.description      = <<-DESC
                        A subclass of UIPageViewController that displays a view in the navigation bar that indicates what view controller's view the user is currently looking at. The selection
                        bar animates nicely in sync with the user's horizontal scrolling in the page controller. The appearence is highly adjustable, as most of the properties are public.
