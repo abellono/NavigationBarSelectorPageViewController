@@ -13,7 +13,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* NJHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* NJHAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* NJHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* NJHViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		65A0144EB5A383200A334623 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9615E2F961685A7FD3D9D54 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */; };
 		6EE887EC1B6A1EA7006DDB3B /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE887EB1B6A1EA7006DDB3B /* Launch Screen.xib */; };
@@ -31,8 +30,6 @@
 		6003F59B195388D20070C39A /* NJHNavigationBarSelectorPageViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJHNavigationBarSelectorPageViewController-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* NJHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJHAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* NJHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJHAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* NJHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NJHViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* NJHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NJHViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
@@ -114,8 +111,6 @@
 			children = (
 				6003F59C195388D20070C39A /* NJHAppDelegate.h */,
 				6003F59D195388D20070C39A /* NJHAppDelegate.m */,
-				6003F5A5195388D20070C39A /* NJHViewController.h */,
-				6003F5A6195388D20070C39A /* NJHViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				6EE887EB1B6A1EA7006DDB3B /* Launch Screen.xib */,
@@ -293,7 +288,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* NJHAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* NJHViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

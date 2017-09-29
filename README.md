@@ -1,9 +1,11 @@
-# NJHNavigationBarSelectorPageViewController
+# Navigation Bar Selector View Controller
 
-[![CI Status](http://img.shields.io/travis/Hakon Hanesand/NJHNavigationBarSelectorPageViewController.svg?style=flat)](https://travis-ci.org/Hakon Hanesand/NJHNavigationBarSelectorPageViewController)
 [![Version](https://img.shields.io/cocoapods/v/NJHNavigationBarSelectorPageViewController.svg?style=flat)](http://cocoapods.org/pods/NJHNavigationBarSelectorPageViewController)
 [![License](https://img.shields.io/cocoapods/l/NJHNavigationBarSelectorPageViewController.svg?style=flat)](http://cocoapods.org/pods/NJHNavigationBarSelectorPageViewController)
 [![Platform](https://img.shields.io/cocoapods/p/NJHNavigationBarSelectorPageViewController.svg?style=flat)](http://cocoapods.org/pods/NJHNavigationBarSelectorPageViewController)
+
+A subclass of UIPageViewController that displays a view in the navigation bar that indicates what view controller's view the user is currently looking at. The selection
+bar animates nicely in sync with the user's horizontal scrolling in the page controller. The appearence is highly adjustable, as most of the properties are public.
 
 ## Usage
 
