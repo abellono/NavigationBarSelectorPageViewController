@@ -24,16 +24,16 @@
     UIViewController *two = [[UIViewController alloc] init];
     UIViewController *three = [[UIViewController alloc] init];
     UIViewController *four = [[UIViewController alloc] init];
-    
+
     one.view.backgroundColor = [UIColor redColor];
-    one.title = @"1";
+    one.title = @"111";
     two.view.backgroundColor = [UIColor whiteColor];
-    two.title = @"2";
+    two.title = @"222";
     three.view.backgroundColor = [UIColor greenColor];
-    three.title = @"3";
+    three.title = @"333333333";
     four.view.backgroundColor = [UIColor blueColor];
-    four.title = @"4";
-    
+    four.title = @"444";
+
     self.swipeController = [[NJHNavigationBarSelectorPageViewController alloc] initWithPageViewControllers:@[one, two, three, four] navigationItem:self.navigationItem];
     
     self.swipeController.navigationBarSelectionWidthProportion = 0.9;

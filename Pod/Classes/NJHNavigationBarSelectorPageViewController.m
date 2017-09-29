@@ -9,27 +9,31 @@
 #import "NJHNavigationBarBackgroundSelectionView.h"
 
 @interface NJHNavigationBarSelectorPageViewController ()
+
+@property (nonatomic) NJHNavigationBarBackgroundSelectionView *navigationView;
+
 @property (nonatomic) UINavigationItem *targetNavigationItem;
+@property (nonatomic) NSInteger currentPageIndex;
+
+
 @property (nonatomic) NSMutableArray *viewControllerArray;
 @property (nonatomic, getter=isPageScrolling) BOOL pageScrolling;
 @property (nonatomic, getter=isInitialized) BOOL initialized;
-@property (nonatomic, readwrite) NSInteger currentPageIndex;
+
 @property (nonatomic, weak) UIScrollView *pageScrollView;
 @end
 
 @implementation NJHNavigationBarSelectorPageViewController
 
 - (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem {
-    if (self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]) {
+    self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+
+    if (self) {
+        _viewControllerArray = pageViewControllers.mutableCopy;
         _navigationBarSelectionWidthProportion = 0.6;
-        
-        if (!navigationItem) {
-            self.targetNavigationItem = self.navigationItem;
-        } else {
-            self.targetNavigationItem = navigationItem;
-        }
-        
-        [self.viewControllerArray addObjectsFromArray:pageViewControllers];
+        _navigationBarSelectionHeightProportion = 0.6;
+
+        _targetNavigationItem = navigationItem ?: self.navigationItem;
         
         self.delegate = self;
         self.dataSource = self;
@@ -40,8 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationView.bounds = CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds) * self.navigationBarSelectionWidthProportion, 30);
+
     self.targetNavigationItem.titleView = self.navigationView;
 }
 
@@ -56,6 +59,16 @@
 
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
     if (!self.isInitialized) {
+
+        [self.navigationController.navigationBar addConstraint:[NSLayoutConstraint constraintWithItem:self.navigationView attribute:NSLayoutAttributeWidth
+                                                                                            relatedBy:NSLayoutRelationEqual
+                                                                                               toItem:self.navigationController.navigationBar attribute:NSLayoutAttributeWidth
+                                                                                           multiplier:self.navigationBarSelectionWidthProportion constant:0]];
+
+        [self.navigationController.navigationBar addConstraint:[NSLayoutConstraint constraintWithItem:self.navigationView attribute:NSLayoutAttributeHeight
+                                                                                            relatedBy:NSLayoutRelationEqual
+                                                                                               toItem:self.navigationController.navigationBar attribute:NSLayoutAttributeHeight
+                                                                                           multiplier:self.navigationBarSelectionHeightProportion constant:0]];
         
         [self setViewControllers:@[[self.viewControllerArray objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         
@@ -70,6 +83,8 @@
         
         self.initialized = YES;
     }
+
+    NSAssert(self.initialized, @"Must be inititalized here");
 }
 
 - (void)transitionToNextViewController {
@@ -151,7 +166,7 @@
     
     // For example, if the user was on the very last page of the view controller array, and we imagine the scroll view is set up as below, and the user starts swiping to the right,
     // the currentPageOffset is the distance from the left side (marked LEFT) and the left side of the last view controller (marked CRT OFFSET). As the user swipes right, the adjustedContentOffset
-    // decreases from 0 to the negative width of the page. The finalOffset value calculated below effectively tracks the left side of the user's iphone screen's distance to the location marked
+    // decreases from 0 to the negative width of the one page. The finalOffset value calculated below effectively tracks the left side of the user's iphone screen's distance to the location marked
     // LEFT below, allowing us to calculate how much to offset the selection view in the navigation bar
     //
     //

@@ -24,14 +24,14 @@
  *  @param navigationItem      The navigation item that is currently sitting on top of the navigation item stack. If you are pushing this view controller onto the stack
  *                             by itself, you may pass in nil to this argument and the view controller will simply use self.navigationItem. However, if you are embedding this
  *                             view controller inside another view controller that is then pushed on a navigation controller, you must pass in the navigation item for the view
- *                             controller who's navigationItem is being displayed in the navigation bar
+ *                             controller who's navigationItem is being displayed in the navigation bar.
  */
 - (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem;
 
 /**
  *  The view that sits in the navigation bar and indicates what view controller is selected
  */
-@property (nonatomic) NJHNavigationBarBackgroundSelectionView *navigationView;
+@property (nonatomic, readonly) NJHNavigationBarBackgroundSelectionView *navigationView;
 
 /**
  *  The index of the current view controller we are displaying
@@ -44,6 +44,11 @@
 @property (nonatomic) CGFloat navigationBarSelectionWidthProportion;
 
 /**
+ *  Use this property to specify what percentage of the navigation bar's height the selection view should be. Default 0.6.
+ */
+@property (nonatomic) CGFloat navigationBarSelectionHeightProportion;
+
+/**
  *  Animates to the next view controller, if there is one
  */
 - (void)transitionToNextViewController;
@@ -54,9 +59,9 @@
 - (void)transitionToPreviousViewController;
 
 /**
- *  Transition to the view controller at index
+ *  Transition to the view controller at index, if a view controller exists there
  *
- *  @param index The index to transition to, if a view controller exists there
+ *  @param index The index to transition to
  */
 - (void)transitionToViewControllerAtIndex:(NSInteger)index;
 

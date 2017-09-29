@@ -46,30 +46,25 @@
 @property (nonatomic, weak) id <NJHNavigationBarBackgroundSelectionViewDelegate> delegate;
 
 /**
- *  The view that slides around on top of this background view to signify what view controller is selected
+ *  The view that slides around on top of this background view to signify what view controller is selected.
  */
-@property (weak, nonatomic) IBOutlet UIView *selectorView;
+@property (weak, nonatomic, readonly) IBOutlet UIView *selectorView;
 
 /**
- *  The font for the title labels. Default font is system font of size 10. Can be changed at any time
+ *  The font for the title labels. Default font is system font of size 10. Can be changed at any time.
  */
 @property (nonatomic) UIFont *labelFont;
 
 /**
- *  The color to use as the text color on the title labels. Default color is black. Can be changed at any time
+ *  The color to use as the text color on the title labels. Default color is black. Can be changed at any time.
  */
 @property (nonatomic) UIColor *labelTextColor;
 
 /**
  *  Use this method to inform the view of how far along the scrol view is in its scrolling progress
  *
- *  @param offset A decimal in the range of [0, # of sections - 1 / # of sections] that describes how much the user has scrolled in the scroll view
+ *  @param ratio A decimal in the range of [0, # of sections - 1 / # of sections] that describes how much the user has scrolled in the scroll view
  */
 - (void)setDragCompletionRatio:(CGFloat)ratio;
-
-/**
- *  Sets the label titles that are displayed on the background to indicate what the sections are called. Can be called dynamically to adjust the sections displayed
- */
-- (void)setLabelTitles:(NSArray *)titles;
 
 @end
