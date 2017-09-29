@@ -7,86 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2ADCF80A58BFD2D9AC83CA7F336CC03D /* NJHNavigationBarSelectorPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51D5EA9BC7935FAB1BECF4AFA6750C7A /* NJHNavigationBarSelectorPageViewController.m */; };
-		3687AFF885A95AC7F9B5BFCC1617C4ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
-		5E6DED14D9D3E54BAFF41E84908DF9B3 /* NJHNavigationBarSelectorPageViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A7DA226DA6FA8A32FC34ECC5D0381DDC /* NJHNavigationBarSelectorPageViewController.bundle */; };
-		6E00415A1F7DDA580089E7E5 /* NJHNavigationBarBackgroundSelectionView+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0041591F7DDA580089E7E5 /* NJHNavigationBarBackgroundSelectionView+Private.h */; };
+		12EB3A8B3CC3C9DC3CE24994ABA4A020 /* NJHNavigationBarBackgroundSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C3079460616465067B2749BD8216934 /* NJHNavigationBarBackgroundSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		144410969B56CC0988FF93F97A3E5020 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
+		3C726265F356EE857D24B0DA0C1C9402 /* NJHNavigationBarSelectorPageViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A7DA226DA6FA8A32FC34ECC5D0381DDC /* NJHNavigationBarSelectorPageViewController.bundle */; };
+		4192F67A8B759451D62BE127429FF493 /* NJHNavigationBarSelectorPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D2CB0A7B0D6DE597609A01AD97A452 /* NJHNavigationBarSelectorPageViewController.m */; };
+		50CE1E5AC87966A5EED686700F380062 /* NJHNavigationBarBackgroundSelectionView.xib in Sources */ = {isa = PBXBuildFile; fileRef = F5B92E082BAA8CDE5482A6A30A7478E1 /* NJHNavigationBarBackgroundSelectionView.xib */; };
+		5876F399D3867E8399840FC2AF4D8D07 /* NJHNavigationBarSelectorPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A9FF15986288EEEBE75C8577DB3801DB /* NJHNavigationBarSelectorPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B3837278B57375D546F87DCB239A22C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */; };
+		6786EB8A1A45D9EBDD17E3B4A354F08E /* NJHNavigationBarBackgroundSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E669617A2A38E8AFFBA47C8DD2BFBF86 /* NJHNavigationBarBackgroundSelectionView.m */; };
 		6EFA344E74B7CA32547D77A294EAB987 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		7AD6AB3D46230C8474F659C28F16F792 /* NJHNavigationBarSelectorPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C7EE0472E96CF4FC84B52596D2E79CED /* NJHNavigationBarSelectorPageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7B04F059CC6A62847C5B4B51DDD7352D /* NJHNavigationBarBackgroundSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC083BCE9D90C0E15378E893C459C2B5 /* NJHNavigationBarBackgroundSelectionView.xib */; };
 		7F1B02B77F09C885C818489FDB0F745E /* Pods-NJHNavigationBarSelectorPageViewController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6B00043A1546C8E161784D807137C /* Pods-NJHNavigationBarSelectorPageViewController_Example-dummy.m */; };
-		ADF9A5453D76CAC9A5BE4F7BDBC74A1D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */; };
-		BE1360F9A5DE69661B75E2C63FB395D8 /* NJHNavigationBarBackgroundSelectionView.xib in Sources */ = {isa = PBXBuildFile; fileRef = DC083BCE9D90C0E15378E893C459C2B5 /* NJHNavigationBarBackgroundSelectionView.xib */; };
-		C3B78B5EA1A5151939D8B39861CE0F32 /* NJHNavigationBarBackgroundSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 53394968BA44E20BA4946CF31BC0CD83 /* NJHNavigationBarBackgroundSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CBB53F7BFCDCB71B54BE82F8770C651F /* NJHNavigationBarSelectorPageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 037BD273CF1A5E1252B74D6788B5BFB0 /* NJHNavigationBarSelectorPageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D2A8F46170044662927422D8C2EEFCB6 /* NJHNavigationBarBackgroundSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5DC4182E04221824AD93750BDDD539 /* NJHNavigationBarBackgroundSelectionView.m */; };
-		F8233900514E3A7B85A9F6B2BA5F64B5 /* NJHNavigationBarSelectorPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D89CC088FC4E87C976BB4CCF010F782 /* NJHNavigationBarSelectorPageViewController-dummy.m */; };
+		8086988D53F51E3B16619F706F15F4F8 /* NJHNavigationBarSelectorPageViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1589A02C96682CF656984812995DF2EE /* NJHNavigationBarSelectorPageViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAF396CFAA805A974DEAFD8D3E54CCC3 /* NJHNavigationBarBackgroundSelectionView+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = BE1DEDF82EA7E0AB172AA6F30A46F0CF /* NJHNavigationBarBackgroundSelectionView+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DC6A925A20CCFC439292BB8A94545AF2 /* NJHNavigationBarBackgroundSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5B92E082BAA8CDE5482A6A30A7478E1 /* NJHNavigationBarBackgroundSelectionView.xib */; };
+		EA932763916F4E56EF642D206A0D4411 /* NJHNavigationBarSelectorPageViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C694787D72707CED98F9CDF5E32CF2 /* NJHNavigationBarSelectorPageViewController-dummy.m */; };
 		FC39488ACC0A1F9A038DCA66B146AA78 /* Pods-NJHNavigationBarSelectorPageViewController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A5DA9851027DADCF43F518DBAFE72740 /* Pods-NJHNavigationBarSelectorPageViewController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F428E7BA6365A460CBAF97DF2CFBAB0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 90EC0594B89B1766BAF3CC34852AF5E4;
-			remoteInfo = "NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController";
-		};
 		52B963878826452AE7BC3B3E956A2934 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 09BC088C7C9761D87E42FA1FEF30510E;
+			remoteGlobalIDString = 929F000CF118E213D4E6634DAA32800B;
 			remoteInfo = NJHNavigationBarSelectorPageViewController;
+		};
+		9DE36676B4D2447A13CC3DDA9D1822F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1318CB17249F011AD6D1CBA75C726FD;
+			remoteInfo = "NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		037BD273CF1A5E1252B74D6788B5BFB0 /* NJHNavigationBarSelectorPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NJHNavigationBarSelectorPageViewController-umbrella.h"; sourceTree = "<group>"; };
+		0C3079460616465067B2749BD8216934 /* NJHNavigationBarBackgroundSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJHNavigationBarBackgroundSelectionView.h; path = Pod/Classes/NJHNavigationBarBackgroundSelectionView.h; sourceTree = "<group>"; };
 		10DCD04ADD830DE54C54B6CCDCEC112D /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		13F3CD66B51A544F71196B2EFA930208 /* ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist"; sourceTree = "<group>"; };
-		1EDE90275E210ECBDC676367B5816D16 /* NJHNavigationBarSelectorPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NJHNavigationBarSelectorPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D89CC088FC4E87C976BB4CCF010F782 /* NJHNavigationBarSelectorPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NJHNavigationBarSelectorPageViewController-dummy.m"; sourceTree = "<group>"; };
-		51D5EA9BC7935FAB1BECF4AFA6750C7A /* NJHNavigationBarSelectorPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJHNavigationBarSelectorPageViewController.m; path = Pod/Classes/NJHNavigationBarSelectorPageViewController.m; sourceTree = "<group>"; };
-		53394968BA44E20BA4946CF31BC0CD83 /* NJHNavigationBarBackgroundSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJHNavigationBarBackgroundSelectionView.h; path = Pod/Classes/NJHNavigationBarBackgroundSelectionView.h; sourceTree = "<group>"; };
+		1589A02C96682CF656984812995DF2EE /* NJHNavigationBarSelectorPageViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NJHNavigationBarSelectorPageViewController-umbrella.h"; sourceTree = "<group>"; };
+		1EDE90275E210ECBDC676367B5816D16 /* NJHNavigationBarSelectorPageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NJHNavigationBarSelectorPageViewController.framework; path = NJHNavigationBarSelectorPageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C0ED7F564584B79CFCE98C00007C535 /* NJHNavigationBarSelectorPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NJHNavigationBarSelectorPageViewController-prefix.pch"; sourceTree = "<group>"; };
 		55C6B00043A1546C8E161784D807137C /* Pods-NJHNavigationBarSelectorPageViewController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NJHNavigationBarSelectorPageViewController_Example-dummy.m"; sourceTree = "<group>"; };
-		59BCB0BAA2BD37C8F1BA4813AF89D689 /* NJHNavigationBarSelectorPageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NJHNavigationBarSelectorPageViewController.xcconfig; sourceTree = "<group>"; };
-		5D96522E061FEDB4554A6F6442F249A3 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NJHNavigationBarSelectorPageViewController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B5285FCFEFFFC4D00777F1AE1EEFF4F /* Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap"; sourceTree = "<group>"; };
-		6E0041591F7DDA580089E7E5 /* NJHNavigationBarBackgroundSelectionView+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NJHNavigationBarBackgroundSelectionView+Private.h"; sourceTree = "<group>"; };
-		7B2D57E9586170F188986A03F050E594 /* NJHNavigationBarSelectorPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = NJHNavigationBarSelectorPageViewController.modulemap; sourceTree = "<group>"; };
+		5D96522E061FEDB4554A6F6442F249A3 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NJHNavigationBarSelectorPageViewController_Example.framework; path = "Pods-NJHNavigationBarSelectorPageViewController_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B5285FCFEFFFC4D00777F1AE1EEFF4F /* Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap"; sourceTree = "<group>"; };
 		908558A44B482E51CFFE4D402A83D14A /* Pods-NJHNavigationBarSelectorPageViewController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NJHNavigationBarSelectorPageViewController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		915E4A7DB4A441E355E5C4014FF6E7D9 /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9267AA0FDCBDE9B52BA991DDB334E628 /* NJHNavigationBarSelectorPageViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NJHNavigationBarSelectorPageViewController.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A5D2CB0A7B0D6DE597609A01AD97A452 /* NJHNavigationBarSelectorPageViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJHNavigationBarSelectorPageViewController.m; path = Pod/Classes/NJHNavigationBarSelectorPageViewController.m; sourceTree = "<group>"; };
 		A5DA9851027DADCF43F518DBAFE72740 /* Pods-NJHNavigationBarSelectorPageViewController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NJHNavigationBarSelectorPageViewController_Example-umbrella.h"; sourceTree = "<group>"; };
-		A7DA226DA6FA8A32FC34ECC5D0381DDC /* NJHNavigationBarSelectorPageViewController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NJHNavigationBarSelectorPageViewController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F1FE02514321839AA95101B1EBB5BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7DA226DA6FA8A32FC34ECC5D0381DDC /* NJHNavigationBarSelectorPageViewController.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = NJHNavigationBarSelectorPageViewController.bundle; path = NJHNavigationBarSelectorPageViewController.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9FF15986288EEEBE75C8577DB3801DB /* NJHNavigationBarSelectorPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJHNavigationBarSelectorPageViewController.h; path = Pod/Classes/NJHNavigationBarSelectorPageViewController.h; sourceTree = "<group>"; };
+		AD607DD35A689E0DD954781CC8D52E80 /* NJHNavigationBarSelectorPageViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = NJHNavigationBarSelectorPageViewController.modulemap; sourceTree = "<group>"; };
+		AFDBD3B428C37353C05F597C2FAC0383 /* ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist"; sourceTree = "<group>"; };
 		AFE8049A39E94375D9A1876868243477 /* Pods-NJHNavigationBarSelectorPageViewController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NJHNavigationBarSelectorPageViewController_Example-resources.sh"; sourceTree = "<group>"; };
 		B63C6A64CF66340668996F78DA6BB482 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		B9E13A612EF8C550B8729D736B10A3B6 /* NJHNavigationBarSelectorPageViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NJHNavigationBarSelectorPageViewController-prefix.pch"; sourceTree = "<group>"; };
+		BE1DEDF82EA7E0AB172AA6F30A46F0CF /* NJHNavigationBarBackgroundSelectionView+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NJHNavigationBarBackgroundSelectionView+Private.h"; path = "Pod/Classes/NJHNavigationBarBackgroundSelectionView+Private.h"; sourceTree = "<group>"; };
 		C5378F31D237EEFF12B49881E2DBAA22 /* Pods-NJHNavigationBarSelectorPageViewController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NJHNavigationBarSelectorPageViewController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		C7EE0472E96CF4FC84B52596D2E79CED /* NJHNavigationBarSelectorPageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJHNavigationBarSelectorPageViewController.h; path = Pod/Classes/NJHNavigationBarSelectorPageViewController.h; sourceTree = "<group>"; };
 		D4B0C8B7DD2D218F79331CD042D4CCA2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D88AAE1F92055A60CC2FC970D7D34634 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DC083BCE9D90C0E15378E893C459C2B5 /* NJHNavigationBarBackgroundSelectionView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = NJHNavigationBarBackgroundSelectionView.xib; path = Pod/Classes/NJHNavigationBarBackgroundSelectionView.xib; sourceTree = "<group>"; };
 		E14E2FE69CA5243FC7917ACA59ADD132 /* Pods-NJHNavigationBarSelectorPageViewController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NJHNavigationBarSelectorPageViewController_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F17123F86B86787E43D17BBF4355EC54 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC5DC4182E04221824AD93750BDDD539 /* NJHNavigationBarBackgroundSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJHNavigationBarBackgroundSelectionView.m; path = Pod/Classes/NJHNavigationBarBackgroundSelectionView.m; sourceTree = "<group>"; };
+		E669617A2A38E8AFFBA47C8DD2BFBF86 /* NJHNavigationBarBackgroundSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NJHNavigationBarBackgroundSelectionView.m; path = Pod/Classes/NJHNavigationBarBackgroundSelectionView.m; sourceTree = "<group>"; };
+		E7C694787D72707CED98F9CDF5E32CF2 /* NJHNavigationBarSelectorPageViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NJHNavigationBarSelectorPageViewController-dummy.m"; sourceTree = "<group>"; };
+		F5B92E082BAA8CDE5482A6A30A7478E1 /* NJHNavigationBarBackgroundSelectionView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = NJHNavigationBarBackgroundSelectionView.xib; path = Pod/Classes/NJHNavigationBarBackgroundSelectionView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		39B1290E363914689B0B0108D9CD6444 /* Frameworks */ = {
+		64F21ADD75AA2721AA735F5EA3635C05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADF9A5453D76CAC9A5BE4F7BDBC74A1D /* Foundation.framework in Frameworks */,
-				3687AFF885A95AC7F9B5BFCC1617C4ED /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4B74EBC741342059650B2B45E9BCC963 /* Frameworks */ = {
+		6E78BB85E1923460E377969721F4A7E8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144410969B56CC0988FF93F97A3E5020 /* Foundation.framework in Frameworks */,
+				5B3837278B57375D546F87DCB239A22C /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2055160845F715D0D05404AC17D7BBF7 /* NJHNavigationBarSelectorPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0C3079460616465067B2749BD8216934 /* NJHNavigationBarBackgroundSelectionView.h */,
+				E669617A2A38E8AFFBA47C8DD2BFBF86 /* NJHNavigationBarBackgroundSelectionView.m */,
+				F5B92E082BAA8CDE5482A6A30A7478E1 /* NJHNavigationBarBackgroundSelectionView.xib */,
+				BE1DEDF82EA7E0AB172AA6F30A46F0CF /* NJHNavigationBarBackgroundSelectionView+Private.h */,
+				A9FF15986288EEEBE75C8577DB3801DB /* NJHNavigationBarSelectorPageViewController.h */,
+				A5D2CB0A7B0D6DE597609A01AD97A452 /* NJHNavigationBarSelectorPageViewController.m */,
+				68E2C5C7C0E7E7F873E2A53CCD74541F /* Resources */,
+				D81ADA42DC90B1AAD88988FA7084680B /* Support Files */,
+			);
+			name = NJHNavigationBarSelectorPageViewController;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		39DEE329A4EA3CB117ABF2DBAB87DCAB /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,23 +142,15 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		53537B2554BE9609A597242B86E9DA67 /* NJHNavigationBarSelectorPageViewController */ = {
+		52212CA43E512297B4E51573D4FD6DD8 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6E0041591F7DDA580089E7E5 /* NJHNavigationBarBackgroundSelectionView+Private.h */,
-				53394968BA44E20BA4946CF31BC0CD83 /* NJHNavigationBarBackgroundSelectionView.h */,
-				FC5DC4182E04221824AD93750BDDD539 /* NJHNavigationBarBackgroundSelectionView.m */,
-				DC083BCE9D90C0E15378E893C459C2B5 /* NJHNavigationBarBackgroundSelectionView.xib */,
-				C7EE0472E96CF4FC84B52596D2E79CED /* NJHNavigationBarSelectorPageViewController.h */,
-				51D5EA9BC7935FAB1BECF4AFA6750C7A /* NJHNavigationBarSelectorPageViewController.m */,
-				6BBED6B4842BC463785A5BA8F67766C1 /* Resources */,
-				D145AF4C07DC7F30B769D3554CD32333 /* Support Files */,
+				2055160845F715D0D05404AC17D7BBF7 /* NJHNavigationBarSelectorPageViewController */,
 			);
-			name = NJHNavigationBarSelectorPageViewController;
-			path = ../..;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		6BBED6B4842BC463785A5BA8F67766C1 /* Resources */ = {
+		68E2C5C7C0E7E7F873E2A53CCD74541F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -171,34 +179,26 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				D47D992043D640A3E25FB35022A2DC26 /* Development Pods */,
+				52212CA43E512297B4E51573D4FD6DD8 /* Development Pods */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				E12CF29DE8199375457A9CDE55631805 /* Products */,
 				39DEE329A4EA3CB117ABF2DBAB87DCAB /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D145AF4C07DC7F30B769D3554CD32333 /* Support Files */ = {
+		D81ADA42DC90B1AAD88988FA7084680B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				F17123F86B86787E43D17BBF4355EC54 /* Info.plist */,
-				7B2D57E9586170F188986A03F050E594 /* NJHNavigationBarSelectorPageViewController.modulemap */,
-				59BCB0BAA2BD37C8F1BA4813AF89D689 /* NJHNavigationBarSelectorPageViewController.xcconfig */,
-				3D89CC088FC4E87C976BB4CCF010F782 /* NJHNavigationBarSelectorPageViewController-dummy.m */,
-				B9E13A612EF8C550B8729D736B10A3B6 /* NJHNavigationBarSelectorPageViewController-prefix.pch */,
-				037BD273CF1A5E1252B74D6788B5BFB0 /* NJHNavigationBarSelectorPageViewController-umbrella.h */,
-				13F3CD66B51A544F71196B2EFA930208 /* ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist */,
+				A5F1FE02514321839AA95101B1EBB5BE /* Info.plist */,
+				AD607DD35A689E0DD954781CC8D52E80 /* NJHNavigationBarSelectorPageViewController.modulemap */,
+				9267AA0FDCBDE9B52BA991DDB334E628 /* NJHNavigationBarSelectorPageViewController.xcconfig */,
+				E7C694787D72707CED98F9CDF5E32CF2 /* NJHNavigationBarSelectorPageViewController-dummy.m */,
+				3C0ED7F564584B79CFCE98C00007C535 /* NJHNavigationBarSelectorPageViewController-prefix.pch */,
+				1589A02C96682CF656984812995DF2EE /* NJHNavigationBarSelectorPageViewController-umbrella.h */,
+				AFDBD3B428C37353C05F597C2FAC0383 /* ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/NJHNavigationBarSelectorPageViewController";
-			sourceTree = "<group>";
-		};
-		D47D992043D640A3E25FB35022A2DC26 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				53537B2554BE9609A597242B86E9DA67 /* NJHNavigationBarSelectorPageViewController */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		E12CF29DE8199375457A9CDE55631805 /* Products */ = {
@@ -214,14 +214,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0509CB920A24E837C9EA0CA631AE49AE /* Headers */ = {
+		37FD3E0685FA8657F341C9F368E8B38C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3B78B5EA1A5151939D8B39861CE0F32 /* NJHNavigationBarBackgroundSelectionView.h in Headers */,
-				CBB53F7BFCDCB71B54BE82F8770C651F /* NJHNavigationBarSelectorPageViewController-umbrella.h in Headers */,
-				7AD6AB3D46230C8474F659C28F16F792 /* NJHNavigationBarSelectorPageViewController.h in Headers */,
-				6E00415A1F7DDA580089E7E5 /* NJHNavigationBarBackgroundSelectionView+Private.h in Headers */,
+				DAF396CFAA805A974DEAFD8D3E54CCC3 /* NJHNavigationBarBackgroundSelectionView+Private.h in Headers */,
+				12EB3A8B3CC3C9DC3CE24994ABA4A020 /* NJHNavigationBarBackgroundSelectionView.h in Headers */,
+				8086988D53F51E3B16619F706F15F4F8 /* NJHNavigationBarSelectorPageViewController-umbrella.h in Headers */,
+				5876F399D3867E8399840FC2AF4D8D07 /* NJHNavigationBarSelectorPageViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,25 +236,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		09BC088C7C9761D87E42FA1FEF30510E /* NJHNavigationBarSelectorPageViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A066120AF4085BB2AA6C221644329D4 /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController" */;
-			buildPhases = (
-				A7F0DC0AB36B2DE479160DBC408028C2 /* Sources */,
-				39B1290E363914689B0B0108D9CD6444 /* Frameworks */,
-				287324444F5AAE16CAE44AA0C53659CB /* Resources */,
-				0509CB920A24E837C9EA0CA631AE49AE /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6D8C4644F1E88E07BC228F21508C82F4 /* PBXTargetDependency */,
-			);
-			name = NJHNavigationBarSelectorPageViewController;
-			productName = NJHNavigationBarSelectorPageViewController;
-			productReference = 1EDE90275E210ECBDC676367B5816D16 /* NJHNavigationBarSelectorPageViewController.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		6BEA226BCAB3512C212FD5B76C1EEB55 /* Pods-NJHNavigationBarSelectorPageViewController_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35AC0D8DBF4EFD108485080DC21B7DFD /* Build configuration list for PBXNativeTarget "Pods-NJHNavigationBarSelectorPageViewController_Example" */;
@@ -273,13 +254,32 @@
 			productReference = 5D96522E061FEDB4554A6F6442F249A3 /* Pods_NJHNavigationBarSelectorPageViewController_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		90EC0594B89B1766BAF3CC34852AF5E4 /* NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController */ = {
+		929F000CF118E213D4E6634DAA32800B /* NJHNavigationBarSelectorPageViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D590DCADE8A9FD7C6262C37EEA480646 /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController" */;
+			buildConfigurationList = CAA856827F6E6EC4A0DDBF0FD2639AA5 /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController" */;
 			buildPhases = (
-				C756C6AF04B86ADB4A0C5CC444A9C405 /* Sources */,
-				4B74EBC741342059650B2B45E9BCC963 /* Frameworks */,
-				6CF4A80678C1FBCE7461BA8CB7795359 /* Resources */,
+				E0D4134BAD6426F0613BFEA09A4AAD52 /* Sources */,
+				6E78BB85E1923460E377969721F4A7E8 /* Frameworks */,
+				FBE4B7F821E8197A696626005A5D1370 /* Resources */,
+				37FD3E0685FA8657F341C9F368E8B38C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75DD1AF006F5BD1B2F19A0F8B712D418 /* PBXTargetDependency */,
+			);
+			name = NJHNavigationBarSelectorPageViewController;
+			productName = NJHNavigationBarSelectorPageViewController;
+			productReference = 1EDE90275E210ECBDC676367B5816D16 /* NJHNavigationBarSelectorPageViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F1318CB17249F011AD6D1CBA75C726FD /* NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E27B2931D5D05DED3CFDE07B721C02B /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController" */;
+			buildPhases = (
+				7A947C85588F920DA4B4C11812E8C747 /* Sources */,
+				64F21ADD75AA2721AA735F5EA3635C05 /* Frameworks */,
+				2730F93068F1511025EF03B189DAE7C5 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -311,33 +311,40 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09BC088C7C9761D87E42FA1FEF30510E /* NJHNavigationBarSelectorPageViewController */,
-				90EC0594B89B1766BAF3CC34852AF5E4 /* NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController */,
+				929F000CF118E213D4E6634DAA32800B /* NJHNavigationBarSelectorPageViewController */,
+				F1318CB17249F011AD6D1CBA75C726FD /* NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController */,
 				6BEA226BCAB3512C212FD5B76C1EEB55 /* Pods-NJHNavigationBarSelectorPageViewController_Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		287324444F5AAE16CAE44AA0C53659CB /* Resources */ = {
+		2730F93068F1511025EF03B189DAE7C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E6DED14D9D3E54BAFF41E84908DF9B3 /* NJHNavigationBarSelectorPageViewController.bundle in Resources */,
+				DC6A925A20CCFC439292BB8A94545AF2 /* NJHNavigationBarBackgroundSelectionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6CF4A80678C1FBCE7461BA8CB7795359 /* Resources */ = {
+		FBE4B7F821E8197A696626005A5D1370 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B04F059CC6A62847C5B4B51DDD7352D /* NJHNavigationBarBackgroundSelectionView.xib in Resources */,
+				3C726265F356EE857D24B0DA0C1C9402 /* NJHNavigationBarSelectorPageViewController.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7A947C85588F920DA4B4C11812E8C747 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9A416CA464279216CF54B8D0F748FA8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -346,45 +353,54 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A7F0DC0AB36B2DE479160DBC408028C2 /* Sources */ = {
+		E0D4134BAD6426F0613BFEA09A4AAD52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2A8F46170044662927422D8C2EEFCB6 /* NJHNavigationBarBackgroundSelectionView.m in Sources */,
-				BE1360F9A5DE69661B75E2C63FB395D8 /* NJHNavigationBarBackgroundSelectionView.xib in Sources */,
-				F8233900514E3A7B85A9F6B2BA5F64B5 /* NJHNavigationBarSelectorPageViewController-dummy.m in Sources */,
-				2ADCF80A58BFD2D9AC83CA7F336CC03D /* NJHNavigationBarSelectorPageViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C756C6AF04B86ADB4A0C5CC444A9C405 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				6786EB8A1A45D9EBDD17E3B4A354F08E /* NJHNavigationBarBackgroundSelectionView.m in Sources */,
+				50CE1E5AC87966A5EED686700F380062 /* NJHNavigationBarBackgroundSelectionView.xib in Sources */,
+				EA932763916F4E56EF642D206A0D4411 /* NJHNavigationBarSelectorPageViewController-dummy.m in Sources */,
+				4192F67A8B759451D62BE127429FF493 /* NJHNavigationBarSelectorPageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6D8C4644F1E88E07BC228F21508C82F4 /* PBXTargetDependency */ = {
+		75DD1AF006F5BD1B2F19A0F8B712D418 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController";
-			target = 90EC0594B89B1766BAF3CC34852AF5E4 /* NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController */;
-			targetProxy = 1F428E7BA6365A460CBAF97DF2CFBAB0 /* PBXContainerItemProxy */;
+			target = F1318CB17249F011AD6D1CBA75C726FD /* NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController */;
+			targetProxy = 9DE36676B4D2447A13CC3DDA9D1822F2 /* PBXContainerItemProxy */;
 		};
 		D50EE92984F78FDB81C3A56609DA96E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = NJHNavigationBarSelectorPageViewController;
-			target = 09BC088C7C9761D87E42FA1FEF30510E /* NJHNavigationBarSelectorPageViewController */;
+			target = 929F000CF118E213D4E6634DAA32800B /* NJHNavigationBarSelectorPageViewController */;
 			targetProxy = 52B963878826452AE7BC3B3E956A2934 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		274D5DAA3E0359A21A0A2F2BD9B1D48D /* Debug */ = {
+		307156D3B58C1DF8D6CF497692B776CD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59BCB0BAA2BD37C8F1BA4813AF89D689 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
+			baseConfigurationReference = 9267AA0FDCBDE9B52BA991DDB334E628 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/NJHNavigationBarSelectorPageViewController";
+				INFOPLIST_FILE = "Target Support Files/NJHNavigationBarSelectorPageViewController/ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = NJHNavigationBarSelectorPageViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		54E0E6B7A06EADD44BCDF6BD72BE5BE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9267AA0FDCBDE9B52BA991DDB334E628 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -398,7 +414,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/NJHNavigationBarSelectorPageViewController/NJHNavigationBarSelectorPageViewController-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/NJHNavigationBarSelectorPageViewController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/NJHNavigationBarSelectorPageViewController/NJHNavigationBarSelectorPageViewController.modulemap";
 				PRODUCT_NAME = NJHNavigationBarSelectorPageViewController;
@@ -411,14 +427,69 @@
 			};
 			name = Debug;
 		};
-		36802D577727AFACB8FB71731ACFB5EE /* Debug */ = {
+		6F9224530522DD3C735EC96CF142642E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59BCB0BAA2BD37C8F1BA4813AF89D689 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		72F7047619EA75355BABE45AFFF71E3E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9267AA0FDCBDE9B52BA991DDB334E628 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/NJHNavigationBarSelectorPageViewController";
 				INFOPLIST_FILE = "Target Support Files/NJHNavigationBarSelectorPageViewController/ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = NJHNavigationBarSelectorPageViewController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -427,7 +498,72 @@
 			};
 			name = Debug;
 		};
-		7C07ED8089F70A31B83996A8910D7F18 /* Debug */ = {
+		8ECCAFFB86E25E00E0328A1B77E99BD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 915E4A7DB4A441E355E5C4014FF6E7D9 /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NJHNavigationBarSelectorPageViewController_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AC12B2CC9216D9E706CD3439D048BF92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10DCD04ADD830DE54C54B6CCDCEC112D /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_NJHNavigationBarSelectorPageViewController_Example;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -476,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -487,9 +623,9 @@
 			};
 			name = Debug;
 		};
-		81C361AFE194D2CAAB141DDC252F7CFF /* Release */ = {
+		FFDF8D7CA66484F237CFFD74B6E5828E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59BCB0BAA2BD37C8F1BA4813AF89D689 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
+			baseConfigurationReference = 9267AA0FDCBDE9B52BA991DDB334E628 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -503,7 +639,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/NJHNavigationBarSelectorPageViewController/NJHNavigationBarSelectorPageViewController-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/NJHNavigationBarSelectorPageViewController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/NJHNavigationBarSelectorPageViewController/NJHNavigationBarSelectorPageViewController.modulemap";
 				PRODUCT_NAME = NJHNavigationBarSelectorPageViewController;
@@ -517,150 +653,23 @@
 			};
 			name = Release;
 		};
-		94DC2E741B1185DAC3CA248BB57CFFCF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10DCD04ADD830DE54C54B6CCDCEC112D /* Pods-NJHNavigationBarSelectorPageViewController_Example.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_NJHNavigationBarSelectorPageViewController_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		98F29E7567052F62660DDD7069ADF73C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		BC2B48CA20961D67C187069ACD581B1C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 915E4A7DB4A441E355E5C4014FF6E7D9 /* Pods-NJHNavigationBarSelectorPageViewController_Example.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-NJHNavigationBarSelectorPageViewController_Example/Pods-NJHNavigationBarSelectorPageViewController_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_NJHNavigationBarSelectorPageViewController_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C40757A5DDE402BC9BED4AF40437BA9D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59BCB0BAA2BD37C8F1BA4813AF89D689 /* NJHNavigationBarSelectorPageViewController.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/NJHNavigationBarSelectorPageViewController";
-				INFOPLIST_FILE = "Target Support Files/NJHNavigationBarSelectorPageViewController/ResourceBundle-NJHNavigationBarSelectorPageViewController-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_NAME = NJHNavigationBarSelectorPageViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0E27B2931D5D05DED3CFDE07B721C02B /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72F7047619EA75355BABE45AFFF71E3E /* Debug */,
+				307156D3B58C1DF8D6CF497692B776CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C07ED8089F70A31B83996A8910D7F18 /* Debug */,
-				98F29E7567052F62660DDD7069ADF73C /* Release */,
+				B57951D085A1B98A97F8A1062A5E5C5B /* Debug */,
+				6F9224530522DD3C735EC96CF142642E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -668,26 +677,17 @@
 		35AC0D8DBF4EFD108485080DC21B7DFD /* Build configuration list for PBXNativeTarget "Pods-NJHNavigationBarSelectorPageViewController_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				94DC2E741B1185DAC3CA248BB57CFFCF /* Debug */,
-				BC2B48CA20961D67C187069ACD581B1C /* Release */,
+				AC12B2CC9216D9E706CD3439D048BF92 /* Debug */,
+				8ECCAFFB86E25E00E0328A1B77E99BD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A066120AF4085BB2AA6C221644329D4 /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController" */ = {
+		CAA856827F6E6EC4A0DDBF0FD2639AA5 /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				274D5DAA3E0359A21A0A2F2BD9B1D48D /* Debug */,
-				81C361AFE194D2CAAB141DDC252F7CFF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D590DCADE8A9FD7C6262C37EEA480646 /* Build configuration list for PBXNativeTarget "NJHNavigationBarSelectorPageViewController-NJHNavigationBarSelectorPageViewController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				36802D577727AFACB8FB71731ACFB5EE /* Debug */,
-				C40757A5DDE402BC9BED4AF40437BA9D /* Release */,
+				54E0E6B7A06EADD44BCDF6BD72BE5BE6 /* Debug */,
+				FFDF8D7CA66484F237CFFD74B6E5828E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

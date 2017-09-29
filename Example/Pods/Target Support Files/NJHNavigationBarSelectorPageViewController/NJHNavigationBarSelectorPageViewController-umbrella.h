@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "NJHNavigationBarBackgroundSelectionView+Private.h"
 #import "NJHNavigationBarBackgroundSelectionView.h"
 #import "NJHNavigationBarSelectorPageViewController.h"
 
