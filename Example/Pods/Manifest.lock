@@ -1,5 +1,5 @@
 PODS:
-  - NJHNavigationBarSelectorPageViewController (1.0.1)
+  - NJHNavigationBarSelectorPageViewController (1.0.2)
 
 DEPENDENCIES:
   - NJHNavigationBarSelectorPageViewController (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  NJHNavigationBarSelectorPageViewController: f6decb82d716779bf7fc58bcd5a45491acd81a0a
+  NJHNavigationBarSelectorPageViewController: 6a7a0f4b18f7b497ac96f9e7583ddd33961c42f7
 
 PODFILE CHECKSUM: 600ebc4acbb3d149f9914b6a63a7423d24a565ec
 

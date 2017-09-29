@@ -49,8 +49,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    NSAssert(self.navigationController.navigationBar, @"%@ must be contained inside a UINavigationController.", NSStringFromClass([NJHNavigationBarSelectorPageViewController class]));
-    self.navigationController.navigationBar.topItem.titleView = self.navigationView;
+    NSAssert(self.navigationController, @"%@ must be contained inside a UINavigationController.", NSStringFromClass([NJHNavigationBarSelectorPageViewController class]));
+    self.navigationItem.titleView = self.navigationView;
 
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
     if (!self.isInitialized) {
