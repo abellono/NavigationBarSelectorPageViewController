@@ -20,4 +20,7 @@
 - (void)setDragCompletionRatio:(CGFloat)ratio;
 + (instancetype)instanceWithViewControllerTitles:(NSArray *)titles;
 
+@property (nonatomic) CGFloat navigationBarSelectionWidthProportion;
+@property (nonatomic) CGFloat navigationBarSelectionHeightProportion;
+
 @end

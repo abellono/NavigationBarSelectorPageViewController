@@ -77,17 +77,6 @@
 
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
     if (!self.isInitialized) {
-
-        [self.navigationController.navigationBar addConstraint:[NSLayoutConstraint constraintWithItem:self.navigationView attribute:NSLayoutAttributeWidth
-                                                                                            relatedBy:NSLayoutRelationEqual
-                                                                                               toItem:self.navigationController.navigationBar attribute:NSLayoutAttributeWidth
-                                                                                           multiplier:self.navigationBarSelectionWidthProportion constant:0]];
-
-        [self.navigationController.navigationBar addConstraint:[NSLayoutConstraint constraintWithItem:self.navigationView attribute:NSLayoutAttributeHeight
-                                                                                            relatedBy:NSLayoutRelationEqual
-                                                                                               toItem:self.navigationController.navigationBar attribute:NSLayoutAttributeHeight
-                                                                                           multiplier:self.navigationBarSelectionHeightProportion constant:0]];
-        
         [self setViewControllers:@[[self.viewControllerArray objectAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
         
         // http://stackoverflow.com/a/28242857/4080860
@@ -232,10 +221,22 @@
 - (NJHNavigationBarBackgroundSelectionView *)navigationView {
     if (!_navigationView) {
         _navigationView = [NJHNavigationBarBackgroundSelectionView instanceWithViewControllerTitles:[self generateButtonNamesFromViewControllers]];
+        _navigationView.navigationBarSelectionWidthProportion = self.navigationBarSelectionWidthProportion;
+        _navigationView.navigationBarSelectionHeightProportion = self.navigationBarSelectionHeightProportion;
         _navigationView.delegate = self;
     }
     
     return _navigationView;
+}
+
+- (void)setNavigationBarSelectionWidthProportion:(CGFloat)navigationBarSelectionWidthProportion {
+    _navigationBarSelectionWidthProportion = navigationBarSelectionWidthProportion;
+    _navigationView.navigationBarSelectionWidthProportion = self.navigationBarSelectionWidthProportion;
+}
+
+- (void)setNavigationBarSelectionHeightProportion:(CGFloat)navigationBarSelectionHeightProportion {
+    _navigationBarSelectionWidthProportion = navigationBarSelectionHeightProportion;
+    _navigationView.navigationBarSelectionWidthProportion = _navigationBarSelectionWidthProportion;
 }
 
 - (NSArray *)generateButtonNamesFromViewControllers {
