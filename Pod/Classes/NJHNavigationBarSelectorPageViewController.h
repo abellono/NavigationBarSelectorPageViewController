@@ -24,6 +24,8 @@
  */
 - (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers;
 
+- (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem;
+
 /**
  *  The view that sits in the navigation bar and indicates what view controller is selected
  */

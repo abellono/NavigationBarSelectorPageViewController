@@ -20,6 +20,8 @@
 @property (nonatomic, getter=isPageScrolling) BOOL pageScrolling;
 @property (nonatomic, getter=isInitialized) BOOL initialized;
 
+@property (nonatomic) UINavigationItem *targetNavigationItem;
+
 @property (nonatomic, weak) UIScrollView *pageScrollView;
 @end
 
@@ -40,6 +42,22 @@
     return self;
 }
 
+- (instancetype)initWithPageViewControllers:(NSArray *)pageViewControllers navigationItem:(UINavigationItem *)navigationItem {
+    self = [super initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+
+    if (self) {
+        _viewControllerArray = pageViewControllers.mutableCopy;
+        _navigationBarSelectionWidthProportion = 0.6;
+        _navigationBarSelectionHeightProportion = 0.6;
+        _targetNavigationItem = navigationItem;
+
+        self.delegate = self;
+        self.dataSource = self;
+    }
+
+    return self;
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
@@ -49,8 +67,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    if (!self.targetNavigationItem) {
+        self.targetNavigationItem = self.navigationItem;
+    }
+
+    self.targetNavigationItem.titleView = self.navigationView;
+
     NSAssert(self.navigationController, @"%@ must be contained inside a UINavigationController.", NSStringFromClass([NJHNavigationBarSelectorPageViewController class]));
-    self.navigationItem.titleView = self.navigationView;
 
     // The self.viewControllers array is not constructed until viewWillAppear, so we have to do some initialization here
     if (!self.isInitialized) {
