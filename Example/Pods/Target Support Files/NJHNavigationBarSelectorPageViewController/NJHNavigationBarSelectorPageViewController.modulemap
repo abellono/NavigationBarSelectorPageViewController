@@ -1,0 +1,6 @@
+framework module NJHNavigationBarSelectorPageViewController {
+  umbrella header "NJHNavigationBarSelectorPageViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}

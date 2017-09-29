@@ -4,9 +4,3 @@ use_frameworks!
 target 'NJHNavigationBarSelectorPageViewController_Example' do
   pod "NJHNavigationBarSelectorPageViewController", :path => "../"
 end
-
-target 'NJHNavigationBarSelectorPageViewController_Tests' do
-  pod "NJHNavigationBarSelectorPageViewController", :path => "../"
-
-  pod 'Kiwi'
-end
