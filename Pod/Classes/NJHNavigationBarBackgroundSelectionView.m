@@ -100,15 +100,17 @@ static int const kNJHDefaultFontSize = 10;
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
 
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.superview attribute:NSLayoutAttributeWidth
-                                                              multiplier:0.8 constant:0]];
+    if (@available(iOS 11.0, *)) {
+        [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.superview attribute:NSLayoutAttributeWidth
+                                                                  multiplier:self.navigationBarSelectionWidthProportion constant:0]];
 
-    [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.superview attribute:NSLayoutAttributeHeight
-                                                              multiplier:0.8 constant:0]];
+        [self.superview addConstraint:[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
+                                                                   relatedBy:NSLayoutRelationEqual
+                                                                      toItem:self.superview attribute:NSLayoutAttributeHeight
+                                                                  multiplier:self.navigationBarSelectionHeightProportion constant:0]];
+    }
 
     self.layer.cornerRadius = CGRectGetHeight(self.frame) / 2;
     self.selectorView.layer.cornerRadius = CGRectGetHeight(self.selectorView.frame) / 2;

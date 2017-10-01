@@ -1,6 +1,6 @@
 {
   "name": "NJHNavigationBarSelectorPageViewController",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "summary": "A view controller that shows synchronizes a selection bar with swipes in a page controller.",
   "description": "A subclass of UIPageViewController that displays a view in the navigation bar that indicates what view controller's view the user is currently looking at. The selection\nbar animates nicely in sync with the user's horizontal scrolling in the page controller. The appearence is highly adjustable, as most of the properties are public.",
   "homepage": "https://github.com/abellono/NavigationBarSelectorPageViewController",
@@ -11,7 +11,7 @@
   },
   "source": {
     "git": "https://github.com/abellono/NavigationBarSelectorPageViewController.git",
-    "tag": "1.0.4"
+    "tag": "1.0.5"
   },
   "platforms": {
     "ios": "9.0"
