@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "NJHNavigationBarSelectorPageViewController"
-  s.version          = "1.0.6"
+  s.version          = "1.0.7"
   s.summary          = "A view controller that shows synchronizes a selection bar with swipes in a page controller."
   s.description      = <<-DESC
                        A subclass of UIPageViewController that displays a view in the navigation bar that indicates what view controller's view the user is currently looking at. The selection
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '9.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = 'Pod/Classes/**/*.{h,m,swift}'
   s.resource_bundles = {
     'NJHNavigationBarSelectorPageViewController' => ['Pod/**/*.{png,xib}']
   }
